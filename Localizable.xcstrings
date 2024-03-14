@@ -1,0 +1,133 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "alert" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림"
+          }
+        }
+      }
+    },
+    "anomymouse sign out" : {
+      "comment" : "signout"
+    },
+    "Continue with Apple" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple 로 계속하기"
+          }
+        }
+      }
+    },
+    "Continue with Google" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google 로 계속하기"
+          }
+        }
+      }
+    },
+    "Delete Account" : {
+
+    },
+    "delete code confirm message" : {
+      "comment" : "delete tag"
+    },
+    "delete theme msg" : {
+      "comment" : "theme"
+    },
+    "empty name error msg" : {
+      "comment" : "text input"
+    },
+    "empty phonenumber error msg" : {
+      "comment" : "text input"
+    },
+    "empty text error msg" : {
+      "comment" : "text input"
+    },
+    "empty title error msg" : {
+      "comment" : "text input"
+    },
+    "Not enough Point" : {
+      "comment" : "Not enough Point",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "포인트가 부족합니다"
+          }
+        }
+      }
+    },
+    "Profile" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "프로파일"
+          }
+        }
+      }
+    },
+    "Sign in with anonymous" : {
+
+    },
+    "Sign in with Apple" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple 로 로그인"
+          }
+        }
+      }
+    },
+    "Sign in with Google" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google 로 로그인"
+          }
+        }
+      }
+    },
+    "Sign Out" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그아웃"
+          }
+        }
+      }
+    },
+    "signin" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그인"
+          }
+        }
+      }
+    },
+    "Tags already registered" : {
+      "comment" : "tag"
+    },
+    "watchAddAndEarnPointPrompt" : {
+      "comment" : "watch ad"
+    },
+    "wrongAccountSigninWhenLeave msg" : {
+      "comment" : "wrong acount sign in"
+    }
+  },
+  "version" : "1.0"
+}

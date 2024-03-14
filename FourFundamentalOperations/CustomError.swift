@@ -25,8 +25,6 @@ enum CustomError : Error {
     case emptyName
     /** 전화번호 입력 안함*/
     case emptyPhoneNumber
-    /** 유효하지 않은 바코드 */
-    case invalidBarcode
     /** 제목 입력 안함 */
     case emptyTitle
     /** 테마 삭제*/
@@ -50,8 +48,6 @@ extension CustomError {
             return "watchAddAndEarnPointPrompt"
         case .emptyText:
             return "emptyText"
-        case .invalidBarcode:
-            return "invalidBarcode"
         case .emptyName:
             return "empty name"
         case .emptyPhoneNumber:
@@ -81,8 +77,6 @@ extension CustomError : LocalizedError {
             return NSLocalizedString("watchAddAndEarnPointPrompt", comment: "watch ad")
         case .emptyText:
             return NSLocalizedString("empty text error msg", comment: "text input")
-        case .invalidBarcode:
-            return NSLocalizedString("invalid Barcode error msg", comment: "text input")
         case .emptyName:
             return NSLocalizedString("empty name error msg", comment: "text input")
         case .emptyPhoneNumber:

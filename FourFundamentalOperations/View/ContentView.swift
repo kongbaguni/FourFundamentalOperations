@@ -9,10 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            MenuView()
+        NavigationStack {
+            List {
+                NavigationLink {
+                    ProfileView()                        
+                } label: {
+                    Text("Profile")                    
+                }
+            }
+            .navigationTitle(.init("Home"))
+            .listStyle(.insetGrouped)
         }
-        .padding()
+            
     }
 }
 
