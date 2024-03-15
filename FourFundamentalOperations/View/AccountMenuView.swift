@@ -24,8 +24,10 @@ struct AccountMenuView : View {
     
     var loginView : some View {
         Group {
-            Text(AuthManager.shared.auth.currentUser?.uid ?? "test")
-            
+            if let account = AuthManager.shared.accountModel {
+                ProfileView(account: account)
+            }
+
             ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .secondary) {
                 if AuthManager.shared.signout() == nil {
                     isLogin = false

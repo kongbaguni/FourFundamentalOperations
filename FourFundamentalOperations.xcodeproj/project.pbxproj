@@ -16,6 +16,10 @@
 		1B47E8862BA41B92009BFF65 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1B47E8852BA41B92009BFF65 /* Realm */; };
 		1B47E8882BA41B92009BFF65 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1B47E8872BA41B92009BFF65 /* RealmSwift */; };
 		1B47E88A2BA429B5009BFF65 /* RoundedBorderImageLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E8892BA429B5009BFF65 /* RoundedBorderImageLabelView.swift */; };
+		1B47E88C2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E88B2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift */; };
+		1B47E88E2BA42FF5009BFF65 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E88D2BA42FF5009BFF65 /* ProfileView.swift */; };
+		1B47E8912BA43124009BFF65 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1B47E8902BA43124009BFF65 /* CachedAsyncImage */; };
+		1B47E8932BA433AA009BFF65 /* URLCache+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */; };
 		1B86AC8C2B9835660081D600 /* FourFundamentalOperationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86AC8B2B9835660081D600 /* FourFundamentalOperationsApp.swift */; };
 		1B86AC8E2B9835660081D600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86AC8D2B9835660081D600 /* ContentView.swift */; };
 		1B86AC902B9835670081D600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B86AC8F2B9835670081D600 /* Assets.xcassets */; };
@@ -64,6 +68,9 @@
 		1B47E8812BA04363009BFF65 /* FourFundamentalOperations.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FourFundamentalOperations.entitlements; sourceTree = "<group>"; };
 		1B47E8822BA19F4F009BFF65 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1B47E8892BA429B5009BFF65 /* RoundedBorderImageLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderImageLabelView.swift; sourceTree = "<group>"; };
+		1B47E88B2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountConfirmView.swift; sourceTree = "<group>"; };
+		1B47E88D2BA42FF5009BFF65 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+Extensions.swift"; sourceTree = "<group>"; };
 		1B86AC882B9835660081D600 /* FourFundamentalOperations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourFundamentalOperations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B86AC8B2B9835660081D600 /* FourFundamentalOperationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourFundamentalOperationsApp.swift; sourceTree = "<group>"; };
 		1B86AC8D2B9835660081D600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +95,7 @@
 				1B86ACC52B9839DD0081D600 /* FirebaseMLModelDownloader in Frameworks */,
 				1BDE525C2BA036E60048158E /* GoogleSignInSwift in Frameworks */,
 				1B86ACB92B9839DD0081D600 /* FirebaseFirestoreSwift in Frameworks */,
+				1B47E8912BA43124009BFF65 /* CachedAsyncImage in Frameworks */,
 				1B86ACA52B9839DD0081D600 /* FirebaseAppCheck in Frameworks */,
 				1B86ACA32B9839DD0081D600 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				1B86ACA92B9839DD0081D600 /* FirebaseAuth in Frameworks */,
@@ -120,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				1B47E8722BA040A8009BFF65 /* UIApplication+Extensions.swift */,
+				1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -189,8 +198,10 @@
 			children = (
 				1B86AC8D2B9835660081D600 /* ContentView.swift */,
 				1B86ACD32B983DE30081D600 /* AccountMenuView.swift */,
+				1B47E88B2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift */,
 				1B86ACD52B983E390081D600 /* ButtonView.swift */,
 				1B47E8892BA429B5009BFF65 /* RoundedBorderImageLabelView.swift */,
+				1B47E88D2BA42FF5009BFF65 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,6 +255,7 @@
 				1BDE525B2BA036E60048158E /* GoogleSignInSwift */,
 				1B47E8852BA41B92009BFF65 /* Realm */,
 				1B47E8872BA41B92009BFF65 /* RealmSwift */,
+				1B47E8902BA43124009BFF65 /* CachedAsyncImage */,
 			);
 			productName = FourFundamentalOperations;
 			productReference = 1B86AC882B9835660081D600 /* FourFundamentalOperations.app */;
@@ -278,6 +290,7 @@
 				1B86AC9B2B9839DD0081D600 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1BDE52582BA036E60048158E /* XCRemoteSwiftPackageReference "GoogleSignIn-ios" */,
 				1B47E8842BA41B92009BFF65 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				1B47E88F2BA43124009BFF65 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = 1B86AC892B9835660081D600 /* Products */;
 			projectDirPath = "";
@@ -334,7 +347,10 @@
 			files = (
 				1B86AC8E2B9835660081D600 /* ContentView.swift in Sources */,
 				1B47E8802BA0428F009BFF65 /* FirebaseFirestoreHelper.swift in Sources */,
+				1B47E88C2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift in Sources */,
 				1B47E87D2BA04247009BFF65 /* CustomError.swift in Sources */,
+				1B47E88E2BA42FF5009BFF65 /* ProfileView.swift in Sources */,
+				1B47E8932BA433AA009BFF65 /* URLCache+Extensions.swift in Sources */,
 				1B86ACD42B983DE30081D600 /* AccountMenuView.swift in Sources */,
 				1B47E87B2BA0421B009BFF65 /* AccountModel.swift in Sources */,
 				1B47E88A2BA429B5009BFF65 /* RoundedBorderImageLabelView.swift in Sources */,
@@ -572,6 +588,14 @@
 				minimumVersion = 10.48.0;
 			};
 		};
+		1B47E88F2BA43124009BFF65 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
 		1B86AC9B2B9839DD0081D600 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -600,6 +624,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1B47E8842BA41B92009BFF65 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		1B47E8902BA43124009BFF65 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B47E88F2BA43124009BFF65 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
 		};
 		1B86AC9C2B9839DD0081D600 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

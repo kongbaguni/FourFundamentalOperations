@@ -57,6 +57,9 @@
     "delete theme msg" : {
       "comment" : "theme"
     },
+    "Email" : {
+
+    },
     "empty name error msg" : {
       "comment" : "text input"
     },
@@ -80,6 +83,12 @@
         }
       }
     },
+    "ID" : {
+
+    },
+    "Last Sign in Date" : {
+
+    },
     "Not enough Point" : {
       "comment" : "Not enough Point",
       "localizations" : {
@@ -91,6 +100,9 @@
         }
       }
     },
+    "PhoneNumber" : {
+
+    },
     "Profile" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -101,6 +113,9 @@
           }
         }
       }
+    },
+    "Reg Date" : {
+
     },
     "Sign in with anonymous" : {
 
