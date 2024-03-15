@@ -36,25 +36,33 @@ struct ProfileView: View {
             }
             if let email = account.email {
                 HStack {
-                    Text("Email").font(.caption)
+                    Text("Email")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                     Text(email)
                 }
             }
             if let phoneNumber = account.phoneNumber {
                 HStack {
-                    Text("PhoneNumber").font(.caption)
+                    Text("PhoneNumber")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                     Text(phoneNumber)
                 }
             }
             if let date = account.accountRegDt {
                 HStack {
-                    Text("Reg Date").font(.caption)
+                    Text("Reg Date")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                     Text(date.formatted(.dateTime))
                 }
             }
             if let date = account.accountLastSigninDt {
                 HStack {
-                    Text("Last Sign in Date").font(.caption)
+                    Text("Last Sign in Date")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                     Text(date.formatted(.dateTime))
                 }
             }
