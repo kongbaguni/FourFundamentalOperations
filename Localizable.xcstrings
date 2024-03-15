@@ -55,6 +55,16 @@
     "empty title error msg" : {
       "comment" : "text input"
     },
+    "Home" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈"
+          }
+        }
+      }
+    },
     "Not enough Point" : {
       "comment" : "Not enough Point",
       "localizations" : {
