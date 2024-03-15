@@ -15,6 +15,7 @@
 		1B47E8832BA19F4F009BFF65 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1B47E8822BA19F4F009BFF65 /* Localizable.xcstrings */; };
 		1B47E8862BA41B92009BFF65 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1B47E8852BA41B92009BFF65 /* Realm */; };
 		1B47E8882BA41B92009BFF65 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1B47E8872BA41B92009BFF65 /* RealmSwift */; };
+		1B47E88A2BA429B5009BFF65 /* RoundedBorderImageLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E8892BA429B5009BFF65 /* RoundedBorderImageLabelView.swift */; };
 		1B86AC8C2B9835660081D600 /* FourFundamentalOperationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86AC8B2B9835660081D600 /* FourFundamentalOperationsApp.swift */; };
 		1B86AC8E2B9835660081D600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86AC8D2B9835660081D600 /* ContentView.swift */; };
 		1B86AC902B9835670081D600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B86AC8F2B9835670081D600 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		1B47E87E2BA0428F009BFF65 /* FirebaseFirestoreHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreHelper.swift; sourceTree = "<group>"; };
 		1B47E8812BA04363009BFF65 /* FourFundamentalOperations.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FourFundamentalOperations.entitlements; sourceTree = "<group>"; };
 		1B47E8822BA19F4F009BFF65 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		1B47E8892BA429B5009BFF65 /* RoundedBorderImageLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderImageLabelView.swift; sourceTree = "<group>"; };
 		1B86AC882B9835660081D600 /* FourFundamentalOperations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourFundamentalOperations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B86AC8B2B9835660081D600 /* FourFundamentalOperationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourFundamentalOperationsApp.swift; sourceTree = "<group>"; };
 		1B86AC8D2B9835660081D600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				1B86AC8D2B9835660081D600 /* ContentView.swift */,
 				1B86ACD32B983DE30081D600 /* AccountMenuView.swift */,
 				1B86ACD52B983E390081D600 /* ButtonView.swift */,
+				1B47E8892BA429B5009BFF65 /* RoundedBorderImageLabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				1B47E87D2BA04247009BFF65 /* CustomError.swift in Sources */,
 				1B86ACD42B983DE30081D600 /* AccountMenuView.swift in Sources */,
 				1B47E87B2BA0421B009BFF65 /* AccountModel.swift in Sources */,
+				1B47E88A2BA429B5009BFF65 /* RoundedBorderImageLabelView.swift in Sources */,
 				1B47E8732BA040A8009BFF65 /* UIApplication+Extensions.swift in Sources */,
 				1B86ACD62B983E390081D600 /* ButtonView.swift in Sources */,
 				1B86AC8C2B9835660081D600 /* FourFundamentalOperationsApp.swift in Sources */,

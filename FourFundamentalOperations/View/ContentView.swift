@@ -12,18 +12,27 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            List {
+            ScrollView {
                 NavigationLink {
                     AccountMenuView()
                 } label: {
+
                     if let account = account {
-                        Text(account.email ?? account.userId)
+                        RoundedBorderImageLabelView(
+                            image: .init(systemName: "person.fill"),
+                            title: .init(account.email ?? account.userId),
+                            style: .primary)
                     }
                     else {
-                        Text("Account")
+                        RoundedBorderImageLabelView(
+                            image: .init(systemName: "person.fill"),
+                            title: .init("account"),
+                            style: .primary)
+
                     }
                 }
             }
+            .padding()
             .navigationTitle(.init("Home"))
             .listStyle(.insetGrouped)
         }
@@ -34,7 +43,7 @@ struct ContentView: View {
             account = AuthManager.shared.accountModel
         })
         .onReceive(NotificationCenter.default.publisher(for: .signoutDidSucessed), perform: { _ in
-            account = nil 
+            account = nil
         })
             
     }
