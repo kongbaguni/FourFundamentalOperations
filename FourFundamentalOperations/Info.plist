@@ -16,13 +16,13 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.0.0</string>
+	<string>11.0</string>
 	<key>LSMinimumSystemVersionByArchitecture</key>
 	<dict>
 		<key>i386</key>
-		<string>10.0.0</string>
+		<string>11.0</string>
 	</dict>
 	<key>MinimumOSVersion</key>
-	<string>10.0</string>
+	<string>11.0</string>
 </dict>
 </plist>
