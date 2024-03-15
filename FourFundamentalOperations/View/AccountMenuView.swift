@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 /**
- 메뉴 표시하는 컴포넌트
+ 계정 관련 메뉴 표시하는 컴포넌트
  */
-struct ProfileView : View {
+struct AccountMenuView : View {
     @State var isLogin = false
     @State var isAnonymousLogin = false
     @State var error:Error? = nil {
@@ -123,7 +123,7 @@ struct ProfileView : View {
                 notLoginView
             }
         }
-        .navigationTitle(.init("Profile"))
+        .navigationTitle(.init("Account"))
         .padding()
         .onAppear {
             isLogin = AuthManager.shared.auth.currentUser != nil
@@ -136,5 +136,5 @@ struct ProfileView : View {
 }
 
 #Preview {
-    ProfileView()
+    AccountMenuView()
 }
