@@ -28,7 +28,7 @@ struct AccountMenuView : View {
                 ProfileView(account: account)
             }
 
-            ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .secondary) {
+            ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .primary) {
                 if AuthManager.shared.signout() == nil {
                     isLogin = false
                 }

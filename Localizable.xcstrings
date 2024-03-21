@@ -145,7 +145,14 @@
       }
     },
     "Last Sign in Date" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "마지막 로그인 일시"
+          }
+        }
+      }
     },
     "Not enough Point" : {
       "comment" : "Not enough Point",
@@ -162,7 +169,14 @@
 
     },
     "Reg Date" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "등록일시"
+          }
+        }
+      }
     },
     "Sign in with anonymous" : {
 
