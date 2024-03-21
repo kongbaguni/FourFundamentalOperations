@@ -34,16 +34,12 @@ struct AccountMenuView : View {
                 }
             }
             if !isAnonymousLogin {
-                ButtonView(image: .init(systemName: "trash.fill"),
-                           title: .init("Delete Account"),
-                           style: .secondary) {
-                    AuthManager.shared.leave { error in
-                        self.error = error
-                        if error == nil {
-                            self.isLogin = false
-                        }
-                    }
+                NavigationLink {
+                    DeleteAccountConfirmView()
+                } label: {
+                    RoundedBorderImageLabelView(image: .init(systemName: "trash"), title: .init("Delete Account"), style: .secondary)
                 }
+
             }
         }
     }

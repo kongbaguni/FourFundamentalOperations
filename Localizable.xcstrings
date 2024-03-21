@@ -2,10 +2,17 @@
   "sourceLanguage" : "en",
   "strings" : {
     "account" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계정"
+          }
+        }
+      }
     },
     "Account" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -48,8 +55,52 @@
         }
       }
     },
+    "delete" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "삭제"
+          }
+        }
+      }
+    },
+    "delete account" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계정 삭제"
+          }
+        }
+      }
+    },
     "Delete Account" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계정 삭제"
+          }
+        }
+      }
+    },
+    "delete account desc" : {
+      "comment" : "계정 삭제",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete your account. Saved data will be permanently deleted and cannot be recovered.\nTo delete your account, enter \"%@\" in the next field."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계정을 삭제합니다. 저장된 데이터는 영구 삭제되며 복구되지 않습니다. \n계정을 삭제하려면 \"%@\" 를 다음 입력칸에 입력하세요."
+          }
+        }
+      }
     },
     "delete code confirm message" : {
       "comment" : "delete tag"
@@ -73,7 +124,7 @@
       "comment" : "text input"
     },
     "Home" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -84,7 +135,14 @@
       }
     },
     "ID" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아이디"
+          }
+        }
+      }
     },
     "Last Sign in Date" : {
 
@@ -102,17 +160,6 @@
     },
     "PhoneNumber" : {
 
-    },
-    "Profile" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "프로필"
-          }
-        }
-      }
     },
     "Reg Date" : {
 

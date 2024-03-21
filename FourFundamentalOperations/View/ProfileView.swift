@@ -31,7 +31,9 @@ struct ProfileView: View {
                 }
             }
             HStack {
-                Text("ID").font(.caption)
+                Text("ID")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
                 Text(account.userId)
             }
             if let email = account.email {
