@@ -27,9 +27,12 @@ struct AccountMenuView : View {
             if let account = AuthManager.shared.accountModel {
                 ProfileView(account: account)
             }
-
+            /** 로그아웃 버튼 */
             ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .primary) {
-                if AuthManager.shared.signout() == nil {
+                if isAnonymousLogin {
+                    error = CustomError.anonymousSignOut
+                }
+                else if AuthManager.shared.signout() == nil {
                     isLogin = false
                 }
             }
@@ -46,6 +49,7 @@ struct AccountMenuView : View {
     
     var notLoginView : some View {
         Group {
+            /** Apple 로 로그인 */
             ButtonView(
                 image: .init(systemName: "apple.logo"),
                 title: .init("Sign in with Apple"),
@@ -58,7 +62,7 @@ struct AccountMenuView : View {
                         self.error = error
                     }
                 }
-            
+            /** 구글로 로그인*/
             ButtonView(
                 image: .init("GoogleLogo"),
                 title: .init("Sign in with Google"),
@@ -71,7 +75,7 @@ struct AccountMenuView : View {
                         self.error = error
                     }
                 }
-            
+            /** 익명 로그인 */
             ButtonView(
                 image: .init(systemName: "person.fill.questionmark"),
                 title: .init("Sign in with anonymous"),
@@ -128,7 +132,20 @@ struct AccountMenuView : View {
             isAnonymousLogin = AuthManager.shared.auth.currentUser?.isAnonymous ?? false
         }
         .alert(isPresented: $isAlert, content: {
-            .init(title: .init("alert"), message: .init(error!.localizedDescription))
+            switch error as? CustomError {
+            case .anonymousSignOut:
+                return .init(
+                    title: .init("alert"),
+                    message: .init(error!.localizedDescription),
+                    primaryButton: .cancel(),
+                    secondaryButton: .default(.init("confirm"), action: {
+                        error = AuthManager.shared.signout()
+                        
+                    }))
+            default:
+                return
+                    .init(title: .init("alert"), message: .init(error!.localizedDescription))
+            }
         })
     }
 }

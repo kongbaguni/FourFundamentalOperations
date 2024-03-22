@@ -23,8 +23,6 @@ enum CustomError : Error {
     case emptyText
     /** 이름 입력 안함*/
     case emptyName
-    /** 전화번호 입력 안함*/
-    case emptyPhoneNumber
     /** 제목 입력 안함 */
     case emptyTitle
     /** 테마 삭제*/
@@ -50,8 +48,6 @@ extension CustomError {
             return "emptyText"
         case .emptyName:
             return "empty name"
-        case .emptyPhoneNumber:
-            return "empty phonenumber"
         case .emptyTitle:
             return "empty title"
         case .deleteTheme:
@@ -79,8 +75,6 @@ extension CustomError : LocalizedError {
             return NSLocalizedString("empty text error msg", comment: "text input")
         case .emptyName:
             return NSLocalizedString("empty name error msg", comment: "text input")
-        case .emptyPhoneNumber:
-            return NSLocalizedString("empty phonenumber error msg", comment: "text input")
         case .emptyTitle:
             return NSLocalizedString("empty title error msg", comment: "text input")
         case .deleteTheme:

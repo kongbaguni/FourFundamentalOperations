@@ -15,3 +15,8 @@ struct AccountModel {
     let photoURL:URL?
     let isAnonymous:Bool
 }
+
+
+extension AccountModel {
+    
+}

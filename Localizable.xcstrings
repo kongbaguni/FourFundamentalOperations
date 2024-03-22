@@ -33,7 +33,31 @@
       }
     },
     "anomymouse sign out" : {
-      "comment" : "signout"
+      "comment" : "signout",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are signing in anonymously. If you sign out now, you will not be able to sign in again with the same account. Would you like to sign out?"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "익명으로 로그인중입니다. 지금 로그 아웃 하면 같은 계정으로 다시 로그인 할 수 없습니다. 로그아웃 하시겠습니까?"
+          }
+        }
+      }
+    },
+    "confirm" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확인"
+          }
+        }
+      }
     },
     "Continue with Apple" : {
       "localizations" : {
@@ -109,12 +133,16 @@
       "comment" : "theme"
     },
     "Email" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이메일"
+          }
+        }
+      }
     },
     "empty name error msg" : {
-      "comment" : "text input"
-    },
-    "empty phonenumber error msg" : {
       "comment" : "text input"
     },
     "empty text error msg" : {
