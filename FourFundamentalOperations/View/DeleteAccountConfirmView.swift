@@ -59,18 +59,7 @@ struct DeleteAccountConfirmView: View {
                 
                 Text(String(format: NSLocalizedString("delete account desc", comment: "계정 삭제"), id))
                     .padding(.bottom, 30)
-                
-                TextField(.init(account?.email ?? account?.userId ?? ""), text: $confirmText)
-                    .foregroundStyle(Color.textFiledForeground)
-                    .padding(10)
-                    .background {
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.textFiledBackground)
-                    }
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.textFiledForeground, lineWidth: 2)
-                    }
+                KTextField(title: .init(id), text: $confirmText)
                     .onChange(of: confirmText) { text in
                         count += 1;
                         let test = text.trimmingCharacters(in: .whitespacesAndNewlines)
