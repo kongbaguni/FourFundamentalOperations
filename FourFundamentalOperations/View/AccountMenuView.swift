@@ -28,7 +28,7 @@ struct AccountMenuView : View {
                 ProfileView(account: account)
             }
             /** 로그아웃 버튼 */
-            ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .primary) {
+            ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .secondary) {
                 if isAnonymousLogin {
                     error = CustomError.anonymousSignOut
                 }
@@ -55,10 +55,6 @@ struct AccountMenuView : View {
                 title: .init("Sign in with Apple"),
                 style: .primary) {
                     AuthManager.shared.startSignInWithAppleFlow { error in
-                        if(error == nil) {
-                            isLogin = true
-                            isAnonymousLogin = false
-                        }
                         self.error = error
                     }
                 }
@@ -68,10 +64,6 @@ struct AccountMenuView : View {
                 title: .init("Sign in with Google"),
                 style: .primary) {
                     AuthManager.shared.startSignInWithGoogleId { error in
-                        if(error == nil) {
-                            isLogin = true
-                            isAnonymousLogin = false
-                        }
                         self.error = error
                     }
                 }
@@ -81,10 +73,6 @@ struct AccountMenuView : View {
                 title: .init("Sign in with anonymous"),
                 style: .secondary, onclick: {
                     AuthManager.shared.startSignInAnonymously { error in
-                        if(error == nil) {
-                            isLogin = true
-                            isAnonymousLogin = true
-                        }
                         self.error = error
                     }
                 })
@@ -98,7 +86,6 @@ struct AccountMenuView : View {
                 title: .init("Continue with Apple"),
                 style: .primary) {
                     AuthManager.shared.upgradeAnonymousWithAppleId { error in
-                        isAnonymousLogin = !(error == nil)
                         self.error = error
                     }
                 }
@@ -107,7 +94,6 @@ struct AccountMenuView : View {
                 title: .init("Continue with Google"),
                 style: .primary) {
                     AuthManager.shared.upgradeAnonymousWithGoogleId { error in
-                        isAnonymousLogin = !(error == nil)
                         self.error = error
                     }
                 }
@@ -128,8 +114,7 @@ struct AccountMenuView : View {
         .navigationTitle(.init("Account"))
         .padding()
         .onAppear {
-            isLogin = AuthManager.shared.auth.currentUser != nil
-            isAnonymousLogin = AuthManager.shared.auth.currentUser?.isAnonymous ?? false
+            update()
         }
         .alert(isPresented: $isAlert, content: {
             switch error as? CustomError {
@@ -147,6 +132,17 @@ struct AccountMenuView : View {
                     .init(title: .init("alert"), message: .init(error!.localizedDescription))
             }
         })
+        .onReceive(NotificationCenter.default.publisher(for: .authDidSucessed), perform: { _ in
+            update()
+        })
+    }
+        
+    
+    func update() {
+        DispatchQueue.main.async {
+            isLogin = AuthManager.shared.auth.currentUser != nil
+            isAnonymousLogin = AuthManager.shared.auth.currentUser?.isAnonymous ?? false
+        }
     }
 }
 
