@@ -31,10 +31,9 @@ struct AccountMenuView : View {
             ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .secondary) {
                 if isAnonymousLogin {
                     error = CustomError.anonymousSignOut
+                    return
                 }
-                else if AuthManager.shared.signout() == nil {
-                    isLogin = false
-                }
+                error = AuthManager.shared.signout()
             }
             if !isAnonymousLogin {
                 NavigationLink {
