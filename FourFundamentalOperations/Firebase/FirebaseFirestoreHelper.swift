@@ -17,24 +17,14 @@ struct FirebaseFirestoreHelper {
         }
         return Firestore.firestore().collection(userid)
     }
+
+    static var profileDocument : DocumentReference? {
+        rootCollection?.document("profile")
+    }
     
     static var rootDocument:DocumentReference? {
         rootCollection?.document("data")
     }
     
-    static var pointCollection:CollectionReference? {
-        rootDocument?.collection("point")
-    }
-    
-    static var codesCollection:CollectionReference? {
-        rootDocument?.collection("codes")
-    }
-    
-    static var tagsCollection:CollectionReference? {
-        rootDocument?.collection("tags")
-    }
-    
-    static var themeCollection:CollectionReference {
-        Firestore.firestore().collection("theme")
-    }
+
 }

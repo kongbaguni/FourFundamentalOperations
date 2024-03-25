@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RealmSwift
+
 struct AccountModel {
     let userId:String
     let accountRegDt:Date?
@@ -18,5 +20,7 @@ struct AccountModel {
 
 
 extension AccountModel {
-    
+    var myProfile:ProfileModel? {
+        Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: userId)
+    }
 }

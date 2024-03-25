@@ -57,6 +57,11 @@
 		1BDE525A2BA036E60048158E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDE52592BA036E60048158E /* GoogleSignIn */; };
 		1BDE525C2BA036E60048158E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDE525B2BA036E60048158E /* GoogleSignInSwift */; };
 		1BE50BBD2BAD234D007ADB10 /* KTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BBC2BAD234D007ADB10 /* KTextField.swift */; };
+		1BE50BBF2BB13D03007ADB10 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BBE2BB13D03007ADB10 /* ProfileModel.swift */; };
+		1BE50BC22BB1411A007ADB10 /* Realm+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC02BB1411A007ADB10 /* Realm+Extensions.swift */; };
+		1BE50BC32BB1411A007ADB10 /* Realm.Object+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC12BB1411A007ADB10 /* Realm.Object+Extensions.swift */; };
+		1BE50BC52BB15623007ADB10 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC42BB15623007ADB10 /* ProfileEditView.swift */; };
+		1BE50BC72BB1577E007ADB10 /* KTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC62BB1577E007ADB10 /* KTextEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +86,11 @@
 		1B86ACD32B983DE30081D600 /* AccountMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuView.swift; sourceTree = "<group>"; };
 		1B86ACD52B983E390081D600 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		1BE50BBC2BAD234D007ADB10 /* KTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTextField.swift; sourceTree = "<group>"; };
+		1BE50BBE2BB13D03007ADB10 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		1BE50BC02BB1411A007ADB10 /* Realm+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Realm+Extensions.swift"; sourceTree = "<group>"; };
+		1BE50BC12BB1411A007ADB10 /* Realm.Object+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Realm.Object+Extensions.swift"; sourceTree = "<group>"; };
+		1BE50BC42BB15623007ADB10 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
+		1BE50BC62BB1577E007ADB10 /* KTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTextEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +139,8 @@
 		1B47E8712BA04084009BFF65 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1BE50BC12BB1411A007ADB10 /* Realm.Object+Extensions.swift */,
+				1BE50BC02BB1411A007ADB10 /* Realm+Extensions.swift */,
 				1B47E8722BA040A8009BFF65 /* UIApplication+Extensions.swift */,
 				1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */,
 			);
@@ -139,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				1B47E87A2BA0421B009BFF65 /* AccountModel.swift */,
+				1BE50BBE2BB13D03007ADB10 /* ProfileModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +184,7 @@
 		1B86AC8A2B9835660081D600 /* FourFundamentalOperations */ = {
 			isa = PBXGroup;
 			children = (
+				1BE50BC82BB17059007ADB10 /* ViewModel */,
 				1B47E8812BA04363009BFF65 /* FourFundamentalOperations.entitlements */,
 				1B47E87F2BA0428F009BFF65 /* Firebase */,
 				1B47E8792BA0420C009BFF65 /* Model */,
@@ -204,9 +218,18 @@
 				1B86ACD52B983E390081D600 /* ButtonView.swift */,
 				1B47E8892BA429B5009BFF65 /* RoundedBorderImageLabelView.swift */,
 				1B47E88D2BA42FF5009BFF65 /* ProfileView.swift */,
+				1BE50BC42BB15623007ADB10 /* ProfileEditView.swift */,
 				1BE50BBC2BAD234D007ADB10 /* KTextField.swift */,
+				1BE50BC62BB1577E007ADB10 /* KTextEditor.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1BE50BC82BB17059007ADB10 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,9 +381,14 @@
 				1B47E87B2BA0421B009BFF65 /* AccountModel.swift in Sources */,
 				1B47E88A2BA429B5009BFF65 /* RoundedBorderImageLabelView.swift in Sources */,
 				1B47E8732BA040A8009BFF65 /* UIApplication+Extensions.swift in Sources */,
+				1BE50BC52BB15623007ADB10 /* ProfileEditView.swift in Sources */,
+				1BE50BBF2BB13D03007ADB10 /* ProfileModel.swift in Sources */,
 				1B86ACD62B983E390081D600 /* ButtonView.swift in Sources */,
 				1B86AC8C2B9835660081D600 /* FourFundamentalOperationsApp.swift in Sources */,
+				1BE50BC22BB1411A007ADB10 /* Realm+Extensions.swift in Sources */,
 				1B47E8702BA03FD9009BFF65 /* AuthManager.swift in Sources */,
+				1BE50BC32BB1411A007ADB10 /* Realm.Object+Extensions.swift in Sources */,
+				1BE50BC72BB1577E007ADB10 /* KTextEditor.swift in Sources */,
 				1BE50BBD2BAD234D007ADB10 /* KTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

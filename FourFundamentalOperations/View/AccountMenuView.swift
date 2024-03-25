@@ -25,7 +25,7 @@ struct AccountMenuView : View {
     var loginView : some View {
         Group {
             if let account = AuthManager.shared.accountModel {
-                ProfileView(account: account)
+                ProfileView(account: account, profile:ProfileModel.myProfile ?? ProfileModel())
             }
             /** 로그아웃 버튼 */
             ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .secondary) {
@@ -39,7 +39,7 @@ struct AccountMenuView : View {
                 NavigationLink {
                     DeleteAccountConfirmView()
                 } label: {
-                    RoundedBorderImageLabelView(image: .init(systemName: "trash"), title: .init("Delete Account"), style: .secondary)
+                    RoundedBorderImageLabelView(image: .init(systemName: "trash"), title: .init("Delete Account"), style: .primary)
                 }
 
             }
@@ -108,6 +108,14 @@ struct AccountMenuView : View {
                 }
             } else {
                 notLoginView
+            }
+        }
+        .toolbar {
+            NavigationLink(destination: ProfileEditView()) {
+                VStack {
+                    Image(systemName: "square.and.pencil")
+                    Text("edit profile")
+                }
             }
         }
         .navigationTitle(.init("Account"))

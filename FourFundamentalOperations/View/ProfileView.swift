@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import RealmSwift
 import CachedAsyncImage
 
 struct ProfileView: View {
     let account:AccountModel
+    @ObservedRealmObject var profile:ProfileModel
+    
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             if let url = account.photoURL {
                 CachedAsyncImage(url: url) {
                     image in
@@ -30,6 +33,20 @@ struct ProfileView: View {
                         .padding(20)
                 }
             }
+            HStack {
+                Text("nickname")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                
+                Text(profile.nickname)
+            }
+            HStack {
+                Text("aboutMe")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Text(profile.aboutMe)
+            }
+            
             HStack {
                 Text("ID")
                     .font(.caption)
@@ -68,12 +85,18 @@ struct ProfileView: View {
                     Text(date.formatted(.dateTime))
                 }
             }
-        }.padding()
+        }
+        .padding()
+        
+        
     }
 }
 
 #Preview {
-    ProfileView(
-        account: .init(userId: "kongbaguni", accountRegDt: Date(), accountLastSigninDt: Date(), email: "kongbaguni@gmail.com", phoneNumber: "010-1234-1234", photoURL: URL(string: "https://mblogthumb-phinf.pstatic.net/MjAyMTAyMDRfNjIg/MDAxNjEyNDA4OTk5NDQ4.6UGs399-0EXjIUwwWsYg7o66lDb-MPOVQ-zNDy1Wnnkg.m-WZz0IKKnc5OO2mjY5dOD-0VsfpXg7WVGgds6fKwnIg.JPEG.sunny_side_up12/1612312679152%EF%BC%8D2.jpg?type=w800"), isAnonymous: false)
-    )
+    NavigationStack {
+        ProfileView(
+            
+            account: .init(userId: "kongbaguni", accountRegDt: Date(), accountLastSigninDt: Date(), email: "kongbaguni@gmail.com", phoneNumber: "010-1234-1234", photoURL: URL(string: "https://mblogthumb-phinf.pstatic.net/MjAyMTAyMDRfNjIg/MDAxNjEyNDA4OTk5NDQ4.6UGs399-0EXjIUwwWsYg7o66lDb-MPOVQ-zNDy1Wnnkg.m-WZz0IKKnc5OO2mjY5dOD-0VsfpXg7WVGgds6fKwnIg.JPEG.sunny_side_up12/1612312679152%EF%BC%8D2.jpg?type=w800"), isAnonymous: false), profile: .init(value: ["nickname":"김개똥","aboutMe":"나는 개똥벌래"])
+        )
+    }
 }

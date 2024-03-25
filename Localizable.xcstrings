@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "aboutMe" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "about Me"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자기소개"
+          }
+        }
+      }
+    },
     "account" : {
       "localizations" : {
         "ko" : {
@@ -43,7 +59,7 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "익명으로 로그인중입니다. 지금 로그 아웃 하면 같은 계정으로 다시 로그인 할 수 없습니다. 로그아웃 하시겠습니까?"
           }
         }
@@ -132,6 +148,16 @@
     "delete theme msg" : {
       "comment" : "theme"
     },
+    "edit profile" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "프로필 편집"
+          }
+        }
+      }
+    },
     "Email" : {
       "localizations" : {
         "ko" : {
@@ -182,6 +208,16 @@
         }
       }
     },
+    "nickname" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "닉네임"
+          }
+        }
+      }
+    },
     "Not enough Point" : {
       "comment" : "Not enough Point",
       "localizations" : {
@@ -194,7 +230,24 @@
       }
     },
     "PhoneNumber" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전화번호"
+          }
+        }
+      }
+    },
+    "Profile Edit" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "프로필 편집"
+          }
+        }
+      }
     },
     "Reg Date" : {
       "localizations" : {
@@ -202,6 +255,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "등록일시"
+          }
+        }
+      }
+    },
+    "save" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장"
           }
         }
       }
