@@ -111,10 +111,12 @@ struct AccountMenuView : View {
             }
         }
         .toolbar {
-            NavigationLink(destination: ProfileEditView()) {
-                VStack {
-                    Image(systemName: "square.and.pencil")
-                    Text("edit profile")
+            if isLogin {
+                NavigationLink(destination: ProfileEditView()) {
+                    VStack {
+                        Image(systemName: "square.and.pencil")
+                        Text("edit profile")
+                    }
                 }
             }
         }
