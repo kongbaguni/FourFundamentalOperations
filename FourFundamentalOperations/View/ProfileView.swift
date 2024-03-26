@@ -12,10 +12,16 @@ import CachedAsyncImage
 struct ProfileView: View {
     let account:AccountModel
     @ObservedRealmObject var profile:ProfileModel
+    @State var profileImageURL:URL? = nil
+    init(account:AccountModel, profile:ProfileModel) {
+        self.profile = profile
+        self.account = account
+        profileImageURL = account.photoURL
+    }
     
-    var body: some View {
-        VStack(alignment: .leading) {
-            if let url = account.photoURL {
+    var profileImageView : some View {
+        ZStack {
+            if let url = profileImageURL {
                 CachedAsyncImage(url: url) {
                     image in
                     image
@@ -33,6 +39,26 @@ struct ProfileView: View {
                         .padding(20)
                 }
             }
+            else {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .foregroundStyle(.symbol1, .symbol2, .symbol3)
+                    .padding(20)
+                    .scaledToFit()
+                    .cornerRadius(20)
+                    .shadow( color: Color.secondary,radius: 3,x:8,y:8)
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
+                    }
+            }
+        }
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            profileImageView
+            
             if !profile.nickname.isEmpty {
                 HStack {
                     Text("nickname")
@@ -94,6 +120,7 @@ struct ProfileView: View {
         
         
     }
+       
 }
 
 #Preview {

@@ -215,16 +215,20 @@ class AuthManager : NSObject {
         }
         
         func deleteAccount(complete:@escaping(_ error:Error?)-> Void) {
-            FirebaseFirestoreHelper.rootDocument?.delete(completion: { error in
-                if error == nil {
-                    self.auth.currentUser?.delete(completion: { error in
+            if let ref = FirebaseFirestoreHelper.myProfileDocument {
+                ref.delete(completion: { error in
+                    if error == nil {
+                        self.auth.currentUser?.delete(completion: { error in
+                            complete(error)
+                        })
+                    }
+                    else {
                         complete(error)
-                    })
-                }
-                else {
-                    complete(error)
-                }
-            })
+                    }
+                })
+            } else {
+                complete(nil)
+            }
         }
         
         reauth { error in
