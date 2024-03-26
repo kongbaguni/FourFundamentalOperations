@@ -24,8 +24,8 @@ struct AccountMenuView : View {
     
     var loginView : some View {
         Group {
-            if let account = AuthManager.shared.accountModel, let profile = ProfileModel.myProfile {
-                ProfileView(account: account, profile:profile)
+            if let account = AuthManager.shared.accountModel {
+                ProfileView(account: account)
             }
             /** 로그아웃 버튼 */
             ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .secondary) {
@@ -112,7 +112,7 @@ struct AccountMenuView : View {
         }
         .toolbar {
             if isLogin {
-                NavigationLink(destination: ProfileEditView()) {
+                NavigationLink(destination: ProfileEditView(account: AuthManager.shared.accountModel!)) {
                     VStack {
                         Image(systemName: "square.and.pencil")
                         Text("edit profile")

@@ -63,6 +63,8 @@
 		1BE50BC52BB15623007ADB10 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC42BB15623007ADB10 /* ProfileEditView.swift */; };
 		1BE50BC72BB1577E007ADB10 /* KTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC62BB1577E007ADB10 /* KTextEditor.swift */; };
 		1BE50BCA2BB2972C007ADB10 /* FirebaseFirestorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC92BB2972C007ADB10 /* FirebaseFirestorageHelper.swift */; };
+		1BE50BCC2BB2A7A1007ADB10 /* KPhotosPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCB2BB2A7A1007ADB10 /* KPhotosPicker.swift */; };
+		1BE50BCE2BB2A887007ADB10 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,8 @@
 		1BE50BC42BB15623007ADB10 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		1BE50BC62BB1577E007ADB10 /* KTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTextEditor.swift; sourceTree = "<group>"; };
 		1BE50BC92BB2972C007ADB10 /* FirebaseFirestorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestorageHelper.swift; sourceTree = "<group>"; };
+		1BE50BCB2BB2A7A1007ADB10 /* KPhotosPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPhotosPicker.swift; sourceTree = "<group>"; };
+		1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,7 @@
 		1B86ACD22B983DCD0081D600 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1BE50BCB2BB2A7A1007ADB10 /* KPhotosPicker.swift */,
 				1B86AC8D2B9835660081D600 /* ContentView.swift */,
 				1B86ACD32B983DE30081D600 /* AccountMenuView.swift */,
 				1B47E88B2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift */,
@@ -224,6 +229,7 @@
 				1BE50BC42BB15623007ADB10 /* ProfileEditView.swift */,
 				1BE50BBC2BAD234D007ADB10 /* KTextField.swift */,
 				1BE50BC62BB1577E007ADB10 /* KTextEditor.swift */,
+				1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,7 +394,9 @@
 				1BE50BBF2BB13D03007ADB10 /* ProfileModel.swift in Sources */,
 				1B86ACD62B983E390081D600 /* ButtonView.swift in Sources */,
 				1B86AC8C2B9835660081D600 /* FourFundamentalOperationsApp.swift in Sources */,
+				1BE50BCC2BB2A7A1007ADB10 /* KPhotosPicker.swift in Sources */,
 				1BE50BC22BB1411A007ADB10 /* Realm+Extensions.swift in Sources */,
+				1BE50BCE2BB2A887007ADB10 /* ProfileImageView.swift in Sources */,
 				1B47E8702BA03FD9009BFF65 /* AuthManager.swift in Sources */,
 				1BE50BC32BB1411A007ADB10 /* Realm.Object+Extensions.swift in Sources */,
 				1BE50BC72BB1577E007ADB10 /* KTextEditor.swift in Sources */,
