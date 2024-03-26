@@ -62,6 +62,7 @@
 		1BE50BC32BB1411A007ADB10 /* Realm.Object+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC12BB1411A007ADB10 /* Realm.Object+Extensions.swift */; };
 		1BE50BC52BB15623007ADB10 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC42BB15623007ADB10 /* ProfileEditView.swift */; };
 		1BE50BC72BB1577E007ADB10 /* KTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC62BB1577E007ADB10 /* KTextEditor.swift */; };
+		1BE50BCA2BB2972C007ADB10 /* FirebaseFirestorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC92BB2972C007ADB10 /* FirebaseFirestorageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		1BE50BC12BB1411A007ADB10 /* Realm.Object+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Realm.Object+Extensions.swift"; sourceTree = "<group>"; };
 		1BE50BC42BB15623007ADB10 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		1BE50BC62BB1577E007ADB10 /* KTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTextEditor.swift; sourceTree = "<group>"; };
+		1BE50BC92BB2972C007ADB10 /* FirebaseFirestorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestorageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				1B47E87E2BA0428F009BFF65 /* FirebaseFirestoreHelper.swift */,
+				1BE50BC92BB2972C007ADB10 /* FirebaseFirestorageHelper.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				1B47E8702BA03FD9009BFF65 /* AuthManager.swift in Sources */,
 				1BE50BC32BB1411A007ADB10 /* Realm.Object+Extensions.swift in Sources */,
 				1BE50BC72BB1577E007ADB10 /* KTextEditor.swift in Sources */,
+				1BE50BCA2BB2972C007ADB10 /* FirebaseFirestorageHelper.swift in Sources */,
 				1BE50BBD2BAD234D007ADB10 /* KTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
