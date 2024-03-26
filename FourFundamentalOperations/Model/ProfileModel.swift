@@ -17,10 +17,19 @@ class ProfileModel : Object , ObjectKeyIdentifiable {
 
 extension ProfileModel {
     static var myProfile:ProfileModel? {
-        if let id = AuthManager.shared.userId {
-            return Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: id)
+        
+        guard let id = AuthManager.shared.userId else {
+            return nil
         }
-        return nil
+        if let model =  Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: id) {
+            return model
+        }
+        
+        let realm = Realm.shared
+        realm.beginWrite()
+        let result = realm.create(ProfileModel.self, value: ["id":id])
+        try! realm.commitWrite()
+        return result
     }
     
     static func make(nickname:String, aboutMe:String, complete:@escaping (_ error:Error?)->Void) {
@@ -39,9 +48,8 @@ extension ProfileModel {
                 
                 let realm = Realm.shared
                 realm.beginWrite()
-                let result = realm.create(ProfileModel.self, value: data, update: .all)
+                realm.create(ProfileModel.self, value: data, update: .all)
                 try realm.commitWrite()
-                NotificationCenter.default.post(name: .profileDidUpdate, object: result)
 
             } catch {
                 complete(error)
@@ -50,9 +58,4 @@ extension ProfileModel {
             complete(error)
         }
     }
-}
-
-
-extension Notification.Name {
-    static let profileDidUpdate = Notification.Name("profileDidUpdate_observer")
 }

@@ -14,7 +14,7 @@ struct ContentView: View {
         NavigationStack {
             ScrollView {
                 NavigationLink {
-                    AccountMenuView()
+                    AccountMenuView(isLogin: AuthManager.shared.auth.currentUser != nil)
                 } label: {
 
                     if let account = account {

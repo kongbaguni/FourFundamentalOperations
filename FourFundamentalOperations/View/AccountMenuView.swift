@@ -24,8 +24,8 @@ struct AccountMenuView : View {
     
     var loginView : some View {
         Group {
-            if let account = AuthManager.shared.accountModel {
-                ProfileView(account: account, profile:ProfileModel.myProfile ?? ProfileModel())
+            if let account = AuthManager.shared.accountModel, let profile = ProfileModel.myProfile {
+                ProfileView(account: account, profile:profile)
             }
             /** 로그아웃 버튼 */
             ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .secondary) {

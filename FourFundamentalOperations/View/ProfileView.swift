@@ -33,18 +33,22 @@ struct ProfileView: View {
                         .padding(20)
                 }
             }
-            HStack {
-                Text("nickname")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                
-                Text(profile.nickname)
+            if !profile.nickname.isEmpty {
+                HStack {
+                    Text("nickname")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    
+                    Text(profile.nickname)
+                }
             }
-            HStack {
-                Text("aboutMe")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                Text(profile.aboutMe)
+            if !profile.aboutMe.isEmpty {
+                HStack {
+                    Text("aboutMe")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Text(profile.aboutMe)
+                }
             }
             
             HStack {
