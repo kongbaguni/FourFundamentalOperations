@@ -11,20 +11,22 @@ import RealmSwift
 import SwiftUI
 
 struct FirebaseFirestoreHelper {
-    static var rootCollection:CollectionReference? {
-        guard let userid = AuthManager.shared.userId else {
-            return nil
+    static var publicCollection:CollectionReference? {
+        Firestore.firestore().collection("public")
+    }
+    
+    /** 프로필 콜랙션 */
+    static var profileCollection : CollectionReference {
+        Firestore.firestore().collection("profile")
+    }
+    
+    /** 내 프로필 저장소 */
+    static var myProfileDocument : DocumentReference? {
+        if let id = AuthManager.shared.userId {
+            return profileCollection.document(id)
         }
-        return Firestore.firestore().collection(userid)
+        return nil
     }
-
-    static var profileDocument : DocumentReference? {
-        rootCollection?.document("profile")
-    }
-    
-    static var rootDocument:DocumentReference? {
-        rootCollection?.document("data")
-    }
-    
+        
 
 }

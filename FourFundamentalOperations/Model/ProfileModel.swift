@@ -33,18 +33,22 @@ extension ProfileModel {
     }
     
     static func make(nickname:String, aboutMe:String, complete:@escaping (_ error:Error?)->Void) {
+        guard let userId = AuthManager.shared.userId else {
+            return
+        }
+        
         var data = [
             "nickname" : nickname,
             "aboutMe" : aboutMe,
         ]
         
-        guard let document = FirebaseFirestoreHelper.profileDocument else {
+        guard let document = FirebaseFirestoreHelper.myProfileDocument else {
             return
         }
                 
         document.setData(data) { error in
             do {
-                data["id"] = FirebaseFirestoreHelper.rootCollection?.collectionID ?? AuthManager.shared.userId!
+                data["id"] = userId
                 
                 let realm = Realm.shared
                 realm.beginWrite()
