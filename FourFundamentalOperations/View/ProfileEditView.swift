@@ -24,10 +24,11 @@ struct ProfileEditView: View {
     }
     @State var isAlert:Bool = false
     
+    @State var photoURL:URL? = nil
     
     var body: some View {
         List {
-            KPhotosPicker(url: account.photoURL, placeHolder: .init(systemName: "person.fill"), selectedImage: $selectImage)
+            KPhotosPicker(url: photoURL, placeHolder: .init(systemName: "person.fill"), selectedImage: $selectImage)
             
 
             HStack {
@@ -48,6 +49,13 @@ struct ProfileEditView: View {
                     if error == nil {
                         self.presentationMode.wrappedValue.dismiss()
                     }
+                    if let image = selectImage {
+                        
+                        FirebaseFirestorageHelper.shared.uploadImage(image: image, contentType: .jpeg, uploadPath: "profile", id: account.userId) { error in
+                            self.error = error
+                        
+                        }
+                    }
                 }
                 
             } label: {
@@ -64,6 +72,10 @@ struct ProfileEditView: View {
             if let model = account.myProfile {
                 nickname = model.nickname
                 aboutMe = model.aboutMe
+            }
+            photoURL = account.photoURL
+            account.getMyProfileImageURL { url, error in
+                photoURL = url
             }
         }
     }

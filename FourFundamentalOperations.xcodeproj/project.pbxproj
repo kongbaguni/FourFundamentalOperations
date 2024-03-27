@@ -65,6 +65,7 @@
 		1BE50BCA2BB2972C007ADB10 /* FirebaseFirestorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BC92BB2972C007ADB10 /* FirebaseFirestorageHelper.swift */; };
 		1BE50BCC2BB2A7A1007ADB10 /* KPhotosPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCB2BB2A7A1007ADB10 /* KPhotosPicker.swift */; };
 		1BE50BCE2BB2A887007ADB10 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */; };
+		1BE50BD02BB3B281007ADB10 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		1BE50BC92BB2972C007ADB10 /* FirebaseFirestorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestorageHelper.swift; sourceTree = "<group>"; };
 		1BE50BCB2BB2A7A1007ADB10 /* KPhotosPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPhotosPicker.swift; sourceTree = "<group>"; };
 		1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				1BE50BC02BB1411A007ADB10 /* Realm+Extensions.swift */,
 				1B47E8722BA040A8009BFF65 /* UIApplication+Extensions.swift */,
 				1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */,
+				1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				1B47E8932BA433AA009BFF65 /* URLCache+Extensions.swift in Sources */,
 				1B86ACD42B983DE30081D600 /* AccountMenuView.swift in Sources */,
 				1B47E87B2BA0421B009BFF65 /* AccountModel.swift in Sources */,
+				1BE50BD02BB3B281007ADB10 /* View+Extensions.swift in Sources */,
 				1B47E88A2BA429B5009BFF65 /* RoundedBorderImageLabelView.swift in Sources */,
 				1B47E8732BA040A8009BFF65 /* UIApplication+Extensions.swift in Sources */,
 				1BE50BC52BB15623007ADB10 /* ProfileEditView.swift in Sources */,

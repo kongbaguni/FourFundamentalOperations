@@ -57,6 +57,12 @@ struct ProfileImageView : View {
             if self.profileImageURL == nil {
                 self.profileImageURL = account.photoURL
             }
+            account.getMyProfileImageURL { url, error in
+                DispatchQueue.main.async {
+                    self.profileImageURL = url
+                }
+            }
+
         }
     }
 }

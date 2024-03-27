@@ -7,7 +7,7 @@
 
 import Foundation
 import FirebaseStorage
-import UIKit
+import SwiftUI
 
 class FirebaseFirestorageHelper {
     static let shared = FirebaseFirestorageHelper()
@@ -35,7 +35,21 @@ class FirebaseFirestorageHelper {
                 data = jpedata
             }
         }
+        uploadData(data: data, contentType: contentType, uploadPath: uploadPath, id: id, complete: complete)
     }
+    
+    func uploadImage(image:Image, contentType:ContentType, uploadPath:String, id:String, complete:@escaping(_ error:Error?)->Void) {
+        let uiimage = image.asUIImage()
+        var data:Data? = nil
+        switch contentType {
+        case .png:
+            data = uiimage.pngData()
+        case .jpeg:
+            data = uiimage.jpegData(compressionQuality: 0.7)
+        }
+        uploadData(data: data!, contentType: contentType, uploadPath: uploadPath, id: id, complete: complete)
+    }
+    
     
     func uploadData(data:Data, contentType:ContentType, uploadPath:String, id:String, complete:@escaping(_ error:Error?)->Void) {
         let ref:StorageReference = storageRef.child("\(uploadPath)/\(id)")

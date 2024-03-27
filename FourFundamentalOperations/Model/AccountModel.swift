@@ -23,4 +23,10 @@ extension AccountModel {
     var myProfile:ProfileModel? {
         Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: userId)
     }
+    
+    func getMyProfileImageURL(complete:@escaping(URL?,Error?)->Void) {
+        FirebaseFirestorageHelper.shared.getURL(path: "profile", id: userId) { url, error in
+            complete(url ?? photoURL,error)
+        }
+    }
 }
