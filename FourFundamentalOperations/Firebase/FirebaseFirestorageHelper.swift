@@ -39,8 +39,9 @@ class FirebaseFirestorageHelper {
         uploadData(data: data, contentType: contentType, uploadPath: uploadPath, id: id, complete: complete)
     }
     
-    func uploadImage(image:Image, contentType:ContentType, uploadPath:String, id:String, complete:@escaping(_ error:Error?)->Void) {
-        let uiimage = image.asUIImage()
+    func uploadImage(image:Image, contentType:ContentType, size:CGSize = .init(width: 300, height: 300) , uploadPath:String, id:String, complete:@escaping(_ error:Error?)->Void) {
+        let uiimage = image.asUIImage().resize(size)
+        
         var data:Data? = nil
         switch contentType {
         case .png:
@@ -58,7 +59,19 @@ class FirebaseFirestorageHelper {
         metadata.contentType = contentType.rawValue
         let task = ref.putData(data, metadata: metadata)
         task.observe(.success) { snapshot in
-            complete(snapshot.error)
+            let realm = Realm.shared
+            let key = "\(uploadPath)/\(id)"
+            if let item = realm.object(ofType: FirestorageCacheModel.self, forPrimaryKey: key) {
+                realm.beginWrite()
+                realm.delete(item)
+                try! realm.commitWrite()
+            }
+            self.getURL(path: uploadPath, id: id) { url, error in
+                if snapshot.error ?? error == nil  {
+                    NotificationCenter.default.post(name: .profilePhotoDidUpdated, object: url)
+                }
+                complete(snapshot.error ?? error)
+            }
         }
         task.observe(.failure) { snapshot in
             complete(snapshot.error)
@@ -90,4 +103,8 @@ class FirebaseFirestorageHelper {
                 complete(url, error)
             }
     }
+}
+
+extension Notification.Name {
+    static let profilePhotoDidUpdated = Notification.Name("profilePhotoDidUpdated_observer")
 }

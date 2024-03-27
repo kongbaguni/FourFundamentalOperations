@@ -67,6 +67,7 @@
 		1BE50BCE2BB2A887007ADB10 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */; };
 		1BE50BD02BB3B281007ADB10 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */; };
 		1BE50BD22BB3B6C3007ADB10 /* FirestorageCacheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BD12BB3B6C3007ADB10 /* FirestorageCacheModel.swift */; };
+		1BE50BD42BB3B94E007ADB10 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BD32BB3B94E007ADB10 /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		1BE50BD12BB3B6C3007ADB10 /* FirestorageCacheModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestorageCacheModel.swift; sourceTree = "<group>"; };
+		1BE50BD32BB3B94E007ADB10 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				1B47E8722BA040A8009BFF65 /* UIApplication+Extensions.swift */,
 				1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */,
 				1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */,
+				1BE50BD32BB3B94E007ADB10 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 			files = (
 				1B86AC8E2B9835660081D600 /* ContentView.swift in Sources */,
 				1B47E8802BA0428F009BFF65 /* FirebaseFirestoreHelper.swift in Sources */,
+				1BE50BD42BB3B94E007ADB10 /* UIImage+Extensions.swift in Sources */,
 				1B47E88C2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift in Sources */,
 				1B47E87D2BA04247009BFF65 /* CustomError.swift in Sources */,
 				1B47E88E2BA42FF5009BFF65 /* ProfileView.swift in Sources */,

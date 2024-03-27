@@ -86,6 +86,11 @@ struct ProfileView: View {
                 self.profileImageURL = account.photoURL
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: .profilePhotoDidUpdated), perform: { noti in
+            if let url = noti.object as? URL {
+                profileImageURL = url
+            }
+        })
         
         
     }
