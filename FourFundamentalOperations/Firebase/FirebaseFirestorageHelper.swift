@@ -61,14 +61,18 @@ class FirebaseFirestorageHelper {
         task.observe(.success) { snapshot in
             let realm = Realm.shared
             let key = "\(uploadPath)/\(id)"
-            if let item = realm.object(ofType: FirestorageCacheModel.self, forPrimaryKey: key) {
+            
+            if let item = realm.object(ofType: FirestorageCacheModel.self, forPrimaryKey: id) {
                 realm.beginWrite()
                 realm.delete(item)
                 try! realm.commitWrite()
             }
             self.getURL(path: uploadPath, id: id) { url, error in
                 if snapshot.error ?? error == nil  {
-                    NotificationCenter.default.post(name: .profilePhotoDidUpdated, object: url)
+                    NotificationCenter.default.post(name: .profilePhotoDidUpdated,  object:nil, userInfo : [
+                        "url" : url?.absoluteString ?? "",
+                        "id" : id
+                    ])
                 }
                 complete(snapshot.error ?? error)
             }
@@ -81,7 +85,7 @@ class FirebaseFirestorageHelper {
     
     func getURL(path:String, id:String, complete:@escaping(_ url:URL?, _ error:Error?)->Void) {
         let key = "\(path)/\(id)"
-        if let item = Realm.shared.object(ofType: FirestorageCacheModel.self, forPrimaryKey: key) {
+        if let item = Realm.shared.object(ofType: FirestorageCacheModel.self, forPrimaryKey: id) {
             if !item.isExpired {
                 complete(URL(string: item.url), nil)
                 return
@@ -94,7 +98,7 @@ class FirebaseFirestorageHelper {
                     let realm = Realm.shared
                     realm.beginWrite()
                     realm.create(FirestorageCacheModel.self, value: [
-                        "id":key,
+                        "id":id,
                         "url":url.absoluteString,
                         "updateDt":Date()
                     ], update: .all)

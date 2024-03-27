@@ -54,9 +54,9 @@ struct ProfileImageView : View {
             }
         }
         .onAppear {
-            if self.profileImageURL == nil {
-                self.profileImageURL = account.photoURL
-            }
+//            if self.profileImageURL == nil {
+//                self.profileImageURL = account.photoURL
+//            }
             account.getMyProfileImageURL { url, error in
                 DispatchQueue.main.async {
                     self.profileImageURL = url
@@ -64,6 +64,16 @@ struct ProfileImageView : View {
             }
 
         }
+        .onReceive(NotificationCenter.default.publisher(for: .profilePhotoDidUpdated), perform: { noti in
+            if let info = noti.userInfo,
+               let url = info["url"] as? String,
+               let id = info["id"] as? String {
+                if account.userId == id {
+                    profileImageURL = URL(string: url)
+                }
+            }
+        })
+        
     }
 }
 

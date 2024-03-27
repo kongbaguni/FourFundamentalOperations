@@ -13,7 +13,6 @@ import CachedAsyncImage
 struct ProfileView: View {
     let account:AccountModel
     @ObservedRealmObject var profile:ProfileModel
-    @State var profileImageURL:URL? = nil
     init(account:AccountModel) {
         self.account = account
         self.profile = account.myProfile ?? ProfileModel()
@@ -80,18 +79,7 @@ struct ProfileView: View {
                 }
             }
         }
-        .padding()
-        .onAppear {
-            if self.profileImageURL == nil {
-                self.profileImageURL = account.photoURL
-            }
-        }
-        .onReceive(NotificationCenter.default.publisher(for: .profilePhotoDidUpdated), perform: { noti in
-            if let url = noti.object as? URL {
-                profileImageURL = url
-            }
-        })
-        
+        .padding()       
         
     }
        
