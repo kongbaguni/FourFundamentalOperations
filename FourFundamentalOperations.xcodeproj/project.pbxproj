@@ -66,6 +66,7 @@
 		1BE50BCC2BB2A7A1007ADB10 /* KPhotosPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCB2BB2A7A1007ADB10 /* KPhotosPicker.swift */; };
 		1BE50BCE2BB2A887007ADB10 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */; };
 		1BE50BD02BB3B281007ADB10 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */; };
+		1BE50BD22BB3B6C3007ADB10 /* FirestorageCacheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BD12BB3B6C3007ADB10 /* FirestorageCacheModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		1BE50BCB2BB2A7A1007ADB10 /* KPhotosPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPhotosPicker.swift; sourceTree = "<group>"; };
 		1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		1BE50BD12BB3B6C3007ADB10 /* FirestorageCacheModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestorageCacheModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			children = (
 				1B47E87A2BA0421B009BFF65 /* AccountModel.swift */,
 				1BE50BBE2BB13D03007ADB10 /* ProfileModel.swift */,
+				1BE50BD12BB3B6C3007ADB10 /* FirestorageCacheModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				1B47E87D2BA04247009BFF65 /* CustomError.swift in Sources */,
 				1B47E88E2BA42FF5009BFF65 /* ProfileView.swift in Sources */,
 				1B47E8932BA433AA009BFF65 /* URLCache+Extensions.swift in Sources */,
+				1BE50BD22BB3B6C3007ADB10 /* FirestorageCacheModel.swift in Sources */,
 				1B86ACD42B983DE30081D600 /* AccountMenuView.swift in Sources */,
 				1B47E87B2BA0421B009BFF65 /* AccountModel.swift in Sources */,
 				1BE50BD02BB3B281007ADB10 /* View+Extensions.swift in Sources */,

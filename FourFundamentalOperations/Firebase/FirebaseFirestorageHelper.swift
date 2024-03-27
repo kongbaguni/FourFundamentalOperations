@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseStorage
 import SwiftUI
+import RealmSwift
 
 class FirebaseFirestorageHelper {
     static let shared = FirebaseFirestorageHelper()
@@ -66,8 +67,26 @@ class FirebaseFirestorageHelper {
     
     
     func getURL(path:String, id:String, complete:@escaping(_ url:URL?, _ error:Error?)->Void) {
-        storageRef.child("\(path)/\(id)")
+        let key = "\(path)/\(id)"
+        if let item = Realm.shared.object(ofType: FirestorageCacheModel.self, forPrimaryKey: key) {
+            if !item.isExpired {
+                complete(URL(string: item.url), nil)
+                return
+            }
+        }
+        
+        storageRef.child(key)
             .downloadURL { url, error in
+                if let url = url {
+                    let realm = Realm.shared
+                    realm.beginWrite()
+                    realm.create(FirestorageCacheModel.self, value: [
+                        "id":key,
+                        "url":url.absoluteString,
+                        "updateDt":Date()
+                    ], update: .all)
+                    try! realm.commitWrite()
+                }
                 complete(url, error)
             }
     }
