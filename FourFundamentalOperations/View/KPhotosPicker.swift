@@ -7,13 +7,14 @@
 
 import SwiftUI
 import PhotosUI
-import CachedAsyncImage
+import AlamofireImage
+import SDWebImageSwiftUI
 
 struct KPhotosPicker : View {
     let url:URL?
-    let placeHolder : Image
-    @Binding var selectedImage:Image?
-    
+    let placeHolder : SwiftUI.Image
+    @Binding var selectedImage:SwiftUI.Image?
+    @State var isLoading = false
     @State var error:Error? = nil {
         didSet {
             if error != nil {
@@ -24,64 +25,85 @@ struct KPhotosPicker : View {
     @State var isAlert:Bool = false
     @State var photoPickerItem:PhotosPickerItem? = nil
     
+    var placeHolderView : some View {
+        placeHolder
+            .resizable()
+            .scaledToFit()
+            .foregroundStyle(.symbol1, .symbol2, .symbol3)
+            .shadow( color: Color.secondary,radius: 3,x:8,y:8)
+            .padding(20)
+            .scaledToFit()
+            .cornerRadius(20)
+            .overlay{
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
+            }
+    }
+    
     var body: some View {
         Group {
-            PhotosPicker(selection: $photoPickerItem) {
-            
-                if let img = selectedImage {
-                    img
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundStyle(.symbol1, .symbol2, .symbol3)
-                        .padding(20)
-                        .scaledToFit()
-                        .cornerRadius(20)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
-                        }
-                }
-                else if let url = url {
-                    CachedAsyncImage(url: url) {
-                        image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(20)
-                            .shadow( color: Color.secondary,radius: 3,x:8,y:8)
-                            .overlay{
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
-                            }
-                        
-                    } placeholder: {
+            PhotosPicker(
+                selection: $photoPickerItem,
+                matching: .images, 
+                preferredItemEncoding: .automatic,
+                photoLibrary: .shared()                
+            ) {
+                ZStack {
+                    if isLoading {
                         ProgressView()
                             .padding(20)
+                            .zIndex(10)
                     }
-                }
-                else  {
-                    placeHolder
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundStyle(.symbol1, .symbol2, .symbol3)
-                        .padding(20)
-                        .scaledToFit()
-                        .cornerRadius(20)
-                        .shadow( color: Color.secondary,radius: 3,x:8,y:8)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
+                    Group {
+                        if let img = selectedImage {
+                            img
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundStyle(.symbol1, .symbol2, .symbol3)
+                                .scaledToFit()
+                                .cornerRadius(20)
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
+                                }
                         }
+                        else if let url = url {
+                            WebImage(url: url) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .cornerRadius(20)
+                                    .overlay{
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
+                                    }
+                                
+                            } placeholder: {
+                                placeHolderView.opacity(0.4)
+                            }
+                            .indicator(.activity)
+                            .transition(.fade(duration: 0.5))
+                        }
+                        else  {
+                            placeHolderView
+                        }
+                    }
+                    .opacity(isLoading ? 0.3 : 1.0)
+                    .blur(radius: isLoading ? 5.0 : 0.0)
                 }
                 
             }
-            
-            if(photoPickerItem != nil) {
+            if isLoading {
+                Text("now loading image")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            else if(photoPickerItem != nil) {
                 Button {
                     selectedImage = nil
                     photoPickerItem = nil
                 } label: {
-                    Image(systemName: "trash")
+                    RoundedBorderImageLabelView(image: .init(systemName: "trash"), title: .init("delete select image"), style: .primary)
                 }
             }
         }
@@ -89,18 +111,15 @@ struct KPhotosPicker : View {
             .init(title: .init("alert"), message: .init(error!.localizedDescription))
         })
         .onChange(of: photoPickerItem) { value in
+            isLoading = value != nil
             if let item = photoPickerItem {
-                _ = item.loadTransferable(type: Image.self) { result in
-                    switch result {
-                    case .success(let image):
+                Task {
+                    if let image = try! await item.loadTransferable(type: Image.self)?.asUIImage().resize(.init(width: 600, height: 600)) {
+                        isLoading = false
                         
-                        selectedImage = image
-                        
-                    case .failure(let error):
-                        self.error = error
+                        selectedImage = Image(uiImage: image)
                     }
                 }
-                
             }
         }
       

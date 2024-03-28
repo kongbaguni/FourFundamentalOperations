@@ -7,7 +7,6 @@
 
 import SwiftUI
 import RealmSwift
-import CachedAsyncImage
 
 
 struct ProfileView: View {

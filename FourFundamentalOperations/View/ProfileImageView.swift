@@ -7,7 +7,7 @@
 
 import SwiftUI
 import RealmSwift
-import CachedAsyncImage
+import SDWebImageSwiftUI
 
 struct ProfileImageView : View {
     let account:AccountModel
@@ -18,40 +18,43 @@ struct ProfileImageView : View {
         self.account = account
         self.profile = account.myProfile ?? ProfileModel()
     }
+    var placeholder : some View {
+        Image(systemName: "person.fill")
+            .resizable()
+            .foregroundStyle(.symbol1, .symbol2, .symbol3)
+            .padding(20)
+            .scaledToFit()
+            .cornerRadius(20)
+            .shadow( color: Color.secondary,radius: 3,x:8,y:8)
+            .overlay{
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
+            }
+    }
     
     var body : some View {
-        ZStack {
-            if let url = profileImageURL {
-                CachedAsyncImage(url: url) {
-                    image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(20)
-                        .shadow( color: Color.secondary,radius: 3,x:8,y:8)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
-                        }
-                    
-                } placeholder: {
-                    ProgressView()
-                        .padding(20)
-                }
-            }
-            else {
-                Image(systemName: "person.fill")
-                    .resizable()
-                    .foregroundStyle(.symbol1, .symbol2, .symbol3)
-                    .padding(20)
-                    .scaledToFit()
-                    .cornerRadius(20)
-                    .shadow( color: Color.secondary,radius: 3,x:8,y:8)
-                    .overlay{
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
+            Group {
+                if let url = profileImageURL {
+                    WebImage(url: url) {
+                        image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(20)
+                            .overlay{
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Color.buttonPrimaryBorder,lineWidth: 3.0)
+                            }
+                        
+                    } placeholder: {
+                        placeholder
                     }
-            }
+                    .indicator(.progress)
+                    .transition(.fade(duration: 0.5))
+                }
+                else {
+                    placeholder
+                }
         }
         .onAppear {
 //            if self.profileImageURL == nil {
@@ -78,5 +81,5 @@ struct ProfileImageView : View {
 }
 
 #Preview {
-    ProfileImageView( account: .init(userId: "kongbaguni", accountRegDt: Date(), accountLastSigninDt: Date(), email: "kongbaguni@gmail.com", phoneNumber: "010-1234-1234", photoURL: URL(string: "https://mblogthumb-phinf.pstatic.net/MjAyMTAyMDRfNjIg/MDAxNjEyNDA4OTk5NDQ4.6UGs399-0EXjIUwwWsYg7o66lDb-MPOVQ-zNDy1Wnnkg.m-WZz0IKKnc5OO2mjY5dOD-0VsfpXg7WVGgds6fKwnIg.JPEG.sunny_side_up12/1612312679152%EF%BC%8D2.jpg?type=w800"), isAnonymous: false))
+    ProfileImageView( account: .init(userId: "kongbaguni", accountRegDt: Date(), accountLastSigninDt: Date(), email: "kongbaguni@gmail.com", phoneNumber: "010-1234-1234", photoURL: URL(string: "https://pbs.twimg.com/media/EiQTMoDXsAAIkD2?format=png&name=360x360"), isAnonymous: false))
 }

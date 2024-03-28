@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0019442BB52F8300EEEADF /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1B0019432BB52F8300EEEADF /* SDWebImageSwiftUI */; };
 		1B47E8702BA03FD9009BFF65 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E86F2BA03FD9009BFF65 /* AuthManager.swift */; };
 		1B47E8732BA040A8009BFF65 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E8722BA040A8009BFF65 /* UIApplication+Extensions.swift */; };
 		1B47E87B2BA0421B009BFF65 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E87A2BA0421B009BFF65 /* AccountModel.swift */; };
@@ -18,7 +19,6 @@
 		1B47E88A2BA429B5009BFF65 /* RoundedBorderImageLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E8892BA429B5009BFF65 /* RoundedBorderImageLabelView.swift */; };
 		1B47E88C2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E88B2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift */; };
 		1B47E88E2BA42FF5009BFF65 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E88D2BA42FF5009BFF65 /* ProfileView.swift */; };
-		1B47E8912BA43124009BFF65 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1B47E8902BA43124009BFF65 /* CachedAsyncImage */; };
 		1B47E8932BA433AA009BFF65 /* URLCache+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */; };
 		1B86AC8C2B9835660081D600 /* FourFundamentalOperationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86AC8B2B9835660081D600 /* FourFundamentalOperationsApp.swift */; };
 		1B86AC8E2B9835660081D600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86AC8D2B9835660081D600 /* ContentView.swift */; };
@@ -68,6 +68,7 @@
 		1BE50BD02BB3B281007ADB10 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */; };
 		1BE50BD22BB3B6C3007ADB10 /* FirestorageCacheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BD12BB3B6C3007ADB10 /* FirestorageCacheModel.swift */; };
 		1BE50BD42BB3B94E007ADB10 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BD32BB3B94E007ADB10 /* UIImage+Extensions.swift */; };
+		1BE50BD72BB3DD31007ADB10 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1BE50BD62BB3DD31007ADB10 /* AlamofireImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,12 +115,12 @@
 				1B86ACBD2B9839DD0081D600 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				1B86ACB52B9839DD0081D600 /* FirebaseFirestore in Frameworks */,
 				1B86ACA12B9839DD0081D600 /* FirebaseAnalyticsSwift in Frameworks */,
+				1B0019442BB52F8300EEEADF /* SDWebImageSwiftUI in Frameworks */,
 				1B86AC9D2B9839DD0081D600 /* FirebaseAnalytics in Frameworks */,
 				1B86AC9F2B9839DD0081D600 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				1B86ACC52B9839DD0081D600 /* FirebaseMLModelDownloader in Frameworks */,
 				1BDE525C2BA036E60048158E /* GoogleSignInSwift in Frameworks */,
 				1B86ACB92B9839DD0081D600 /* FirebaseFirestoreSwift in Frameworks */,
-				1B47E8912BA43124009BFF65 /* CachedAsyncImage in Frameworks */,
 				1B86ACA52B9839DD0081D600 /* FirebaseAppCheck in Frameworks */,
 				1B86ACA32B9839DD0081D600 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				1B86ACA92B9839DD0081D600 /* FirebaseAuth in Frameworks */,
@@ -127,6 +128,7 @@
 				1B86ACCD2B9839DD0081D600 /* FirebaseRemoteConfigSwift in Frameworks */,
 				1BDE525A2BA036E60048158E /* GoogleSignIn in Frameworks */,
 				1B86ACBF2B9839DD0081D600 /* FirebaseInAppMessaging-Beta in Frameworks */,
+				1BE50BD72BB3DD31007ADB10 /* AlamofireImage in Frameworks */,
 				1B86ACB12B9839DD0081D600 /* FirebaseDatabaseSwift in Frameworks */,
 				1B86ACBB2B9839DD0081D600 /* FirebaseFunctions in Frameworks */,
 				1B86ACD12B9839DD0081D600 /* FirebaseStorageCombine-Community in Frameworks */,
@@ -299,7 +301,8 @@
 				1BDE525B2BA036E60048158E /* GoogleSignInSwift */,
 				1B47E8852BA41B92009BFF65 /* Realm */,
 				1B47E8872BA41B92009BFF65 /* RealmSwift */,
-				1B47E8902BA43124009BFF65 /* CachedAsyncImage */,
+				1BE50BD62BB3DD31007ADB10 /* AlamofireImage */,
+				1B0019432BB52F8300EEEADF /* SDWebImageSwiftUI */,
 			);
 			productName = FourFundamentalOperations;
 			productReference = 1B86AC882B9835660081D600 /* FourFundamentalOperations.app */;
@@ -334,7 +337,8 @@
 				1B86AC9B2B9839DD0081D600 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1BDE52582BA036E60048158E /* XCRemoteSwiftPackageReference "GoogleSignIn-ios" */,
 				1B47E8842BA41B92009BFF65 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				1B47E88F2BA43124009BFF65 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				1BE50BD52BB3DD31007ADB10 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				1B0019422BB52F8300EEEADF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 1B86AC892B9835660081D600 /* Products */;
 			projectDirPath = "";
@@ -636,20 +640,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1B0019422BB52F8300EEEADF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
 		1B47E8842BA41B92009BFF65 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 10.48.0;
-			};
-		};
-		1B47E88F2BA43124009BFF65 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
 			};
 		};
 		1B86AC9B2B9839DD0081D600 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -668,9 +672,22 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		1BE50BD52BB3DD31007ADB10 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1B0019432BB52F8300EEEADF /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B0019422BB52F8300EEEADF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		1B47E8852BA41B92009BFF65 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1B47E8842BA41B92009BFF65 /* XCRemoteSwiftPackageReference "realm-swift" */;
@@ -680,11 +697,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1B47E8842BA41B92009BFF65 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		1B47E8902BA43124009BFF65 /* CachedAsyncImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1B47E88F2BA43124009BFF65 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
-			productName = CachedAsyncImage;
 		};
 		1B86AC9C2B9839DD0081D600 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -830,6 +842,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1BDE52582BA036E60048158E /* XCRemoteSwiftPackageReference "GoogleSignIn-ios" */;
 			productName = GoogleSignInSwift;
+		};
+		1BE50BD62BB3DD31007ADB10 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BE50BD52BB3DD31007ADB10 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

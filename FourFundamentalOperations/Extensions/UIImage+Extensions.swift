@@ -5,15 +5,17 @@
 //  Created by Changyeol Seo on 3/27/24.
 //
 
-import UIKit
+import SwiftUI
 import AVFoundation
 
 public extension UIImage {
-    /// Resize image while keeping the aspect ratio. Original image is not modified.
-    /// - Parameters:
-    ///   - width: A new width in pixels.
-    ///   - height: A new height in pixels.
-    /// - Returns: Resized image.
+    /**
+     Resize image while keeping the aspect ratio. Original image is not modified.
+      - Parameters:
+      - width: A new width in pixels.
+      - height: A new height in pixels.
+      - Returns: Resized image.
+     */
     func resize(_ maxSize:CGSize) -> UIImage {
         // Keep aspect ratio
         let availableRect = AVFoundation.AVMakeRect(
@@ -33,5 +35,13 @@ public extension UIImage {
         }
 
         return resized
+    }
+}
+
+
+#Preview {
+    return VStack {
+        Text("1")
+        Text("2")
     }
 }

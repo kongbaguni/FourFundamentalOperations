@@ -39,8 +39,8 @@ class FirebaseFirestorageHelper {
         uploadData(data: data, contentType: contentType, uploadPath: uploadPath, id: id, complete: complete)
     }
     
-    func uploadImage(image:Image, contentType:ContentType, size:CGSize = .init(width: 300, height: 300) , uploadPath:String, id:String, complete:@escaping(_ error:Error?)->Void) {
-        let uiimage = image.asUIImage().resize(size)
+    func uploadImage(image:Image, contentType:ContentType, uploadPath:String, id:String, complete:@escaping(_ error:Error?)->Void) {
+        let uiimage = image.asUIImage()
         
         var data:Data? = nil
         switch contentType {
@@ -60,8 +60,6 @@ class FirebaseFirestorageHelper {
         let task = ref.putData(data, metadata: metadata)
         task.observe(.success) { snapshot in
             let realm = Realm.shared
-            let key = "\(uploadPath)/\(id)"
-            
             if let item = realm.object(ofType: FirestorageCacheModel.self, forPrimaryKey: id) {
                 realm.beginWrite()
                 realm.delete(item)

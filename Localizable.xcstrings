@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "1" : {
+
+    },
+    "2" : {
+
+    },
     "aboutMe" : {
       "localizations" : {
         "en" : {
@@ -145,6 +151,9 @@
     "delete code confirm message" : {
       "comment" : "delete tag"
     },
+    "delete select image" : {
+
+    },
     "delete theme msg" : {
       "comment" : "theme"
     },
@@ -229,6 +238,22 @@
         }
       }
     },
+    "now loading image" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading the selected image."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이미지를 불러오는 중입니다."
+          }
+        }
+      }
+    },
     "PhoneNumber" : {
       "localizations" : {
         "ko" : {
@@ -270,7 +295,14 @@
       }
     },
     "Sign in with anonymous" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "익명으로 로그인"
+          }
+        }
+      }
     },
     "Sign in with Apple" : {
       "localizations" : {
