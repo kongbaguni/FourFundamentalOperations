@@ -12,7 +12,7 @@ struct ProfileEditView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     let account:AccountModel
-    @State var selectImage:Image? = nil
+    @State var selectImageData:Data? = nil
     @State var nickname:String = ""
     @State var aboutMe:String = ""
     @State var error:Error? = nil {
@@ -28,7 +28,7 @@ struct ProfileEditView: View {
     
     var body: some View {
         List {
-            KPhotosPicker(url: photoURL, placeHolder: .init(systemName: "person.fill"), selectedImage: $selectImage)
+            KPhotosPicker(url: photoURL, placeHolder: .init(systemName: "person.fill"), data: $selectImageData)
             
 
             HStack {
@@ -49,11 +49,9 @@ struct ProfileEditView: View {
                     if error == nil {
                         self.presentationMode.wrappedValue.dismiss()
                     }
-                    if let image = selectImage {
-                        
-                        FirebaseFirestorageHelper.shared.uploadImage(image: image, contentType: .jpeg, uploadPath: "profile", id: account.userId) { error in
+                    if let data = selectImageData {
+                        FirebaseFirestorageHelper.shared.uploadData(data: data, contentType: .jpeg, uploadPath: "profile", id: account.userId) { error in
                             self.error = error
-                        
                         }
                     }
                 }

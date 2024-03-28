@@ -40,7 +40,7 @@ class FirebaseFirestorageHelper {
     }
     
     func uploadImage(image:Image, contentType:ContentType, uploadPath:String, id:String, complete:@escaping(_ error:Error?)->Void) {
-        let uiimage = image.asUIImage()
+        let uiimage = image.snapshot()
         
         var data:Data? = nil
         switch contentType {
