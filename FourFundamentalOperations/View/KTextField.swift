@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct KTextField: View {
-    let title:LocalizedStringKey
+    let title:Text
     @Binding var text:String
+    
+    var textFieldView : some View {
+        if #available(iOS 17.0, *) {
+            TextField(text: $text, prompt: title.foregroundStyle(Color.textFiledPlaceholder)) {
+                title
+            }
+        }
+        else {
+            TextField(
+                text: $text,
+                prompt: title.foregroundColor(.textFiledPlaceholder)) {
+                title
+            }
+        }
+    }
+    
     var body: some View {
-        TextField(title, text: $text)
+        textFieldView
             .foregroundStyle(Color.textFiledForeground)
+            .accentColor(.yellow)
             .padding(10)
             .background {
                 RoundedRectangle(cornerRadius: 10)
@@ -23,6 +40,7 @@ struct KTextField: View {
                     .stroke(Color.textFiledForeground, lineWidth: 2)
             }
             .padding(.bottom, 10)
+       
     }
 }
 

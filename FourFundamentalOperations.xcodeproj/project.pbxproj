@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1B0019442BB52F8300EEEADF /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1B0019432BB52F8300EEEADF /* SDWebImageSwiftUI */; };
+		1B0019462BB5496300EEEADF /* CalculationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0019452BB5496300EEEADF /* CalculationViewModel.swift */; };
+		1B0019482BB64C7700EEEADF /* QustionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0019472BB64C7700EEEADF /* QustionView.swift */; };
+		1B00194A2BB65AED00EEEADF /* KButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0019492BB65AED00EEEADF /* KButton.swift */; };
 		1B47E8702BA03FD9009BFF65 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E86F2BA03FD9009BFF65 /* AuthManager.swift */; };
 		1B47E8732BA040A8009BFF65 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E8722BA040A8009BFF65 /* UIApplication+Extensions.swift */; };
 		1B47E87B2BA0421B009BFF65 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E87A2BA0421B009BFF65 /* AccountModel.swift */; };
@@ -72,6 +75,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B0019452BB5496300EEEADF /* CalculationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationViewModel.swift; sourceTree = "<group>"; };
+		1B0019472BB64C7700EEEADF /* QustionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QustionView.swift; sourceTree = "<group>"; };
+		1B0019492BB65AED00EEEADF /* KButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KButton.swift; sourceTree = "<group>"; };
 		1B47E86E2BA03FAD009BFF65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1B47E86F2BA03FD9009BFF65 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		1B47E8722BA040A8009BFF65 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 				1B47E87A2BA0421B009BFF65 /* AccountModel.swift */,
 				1BE50BBE2BB13D03007ADB10 /* ProfileModel.swift */,
 				1BE50BD12BB3B6C3007ADB10 /* FirestorageCacheModel.swift */,
+				1B0019452BB5496300EEEADF /* CalculationViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,6 +248,8 @@
 				1BE50BBC2BAD234D007ADB10 /* KTextField.swift */,
 				1BE50BC62BB1577E007ADB10 /* KTextEditor.swift */,
 				1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */,
+				1B0019472BB64C7700EEEADF /* QustionView.swift */,
+				1B0019492BB65AED00EEEADF /* KButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -402,10 +411,13 @@
 				1B47E8932BA433AA009BFF65 /* URLCache+Extensions.swift in Sources */,
 				1BE50BD22BB3B6C3007ADB10 /* FirestorageCacheModel.swift in Sources */,
 				1B86ACD42B983DE30081D600 /* AccountMenuView.swift in Sources */,
+				1B0019462BB5496300EEEADF /* CalculationViewModel.swift in Sources */,
 				1B47E87B2BA0421B009BFF65 /* AccountModel.swift in Sources */,
 				1BE50BD02BB3B281007ADB10 /* View+Extensions.swift in Sources */,
 				1B47E88A2BA429B5009BFF65 /* RoundedBorderImageLabelView.swift in Sources */,
 				1B47E8732BA040A8009BFF65 /* UIApplication+Extensions.swift in Sources */,
+				1B0019482BB64C7700EEEADF /* QustionView.swift in Sources */,
+				1B00194A2BB65AED00EEEADF /* KButton.swift in Sources */,
 				1BE50BC52BB15623007ADB10 /* ProfileEditView.swift in Sources */,
 				1BE50BBF2BB13D03007ADB10 /* ProfileModel.swift in Sources */,
 				1B86ACD62B983E390081D600 /* ButtonView.swift in Sources */,

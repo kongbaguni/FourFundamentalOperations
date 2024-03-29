@@ -20,6 +20,7 @@ struct AccountModel {
 
 
 extension AccountModel {
+        
     var myProfile:ProfileModel? {
         Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: userId)
     }
