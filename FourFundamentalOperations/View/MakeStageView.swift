@@ -12,12 +12,12 @@ struct MakeStageView: View {
     var qustions:[String] = []
     @State var leftCount = 1
     @State var rightCount = 1
-    @State var operations:[String] = []
+    @State var operators:[String] = []
     @State var isTimeAttack = false
     @State var count = 20
     
     var oper:[CalculationViewModel.Operator] {
-        operations.map { str in
+        operators.map { str in
             return CalculationViewModel.Operator(rawValue: str) ?? .plus
         }
     }
@@ -25,30 +25,36 @@ struct MakeStageView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                KNumberSelect(label: .init("leftCount"), select: $leftCount)
-                KNumberSelect(label: .init("rightCount"), select: $rightCount)
+                KNumberSelect(label: .init("leftCount"), range: 1..<4, select: $leftCount)
+                KNumberSelect(label: .init("rightCount"), range: 1..<4, select: $rightCount)
                 HStack {
                     Text("Operator")
                         .font(.subheadline).foregroundStyle(.secondary)
-                    KSelectInput(items: ["+", "-", "*", "/"], selection: $operations)
+                    KSelectInput(items: ["+", "-", "*", "/"], selection: $operators)
                 }
-                Toggle(.init("time attack"), isOn: $isTimeAttack)
+                Toggle(isOn: $isTimeAttack) {
+                    Text("time attack")
+                }
+
                 if isTimeAttack {
-                    KNumberSelect(label: .init("time limit"), select: $count)
+                    KNumberSelect(label: .init("time limit"), range: 20..<121, select: $count)
                 } else {
-                    KNumberSelect(label: .init("qustion count"), select: $count)
+                    KNumberSelect(label: .init("qustion count"), range: 5..<31, select: $count)
                 }
                 
                 NavigationLink {
                     GameView(model: .init(leftCount: leftCount, rightCount: rightCount, operations: oper, isTimeAttack: isTimeAttack, count: count))
                     
                 } label: {
-                    RoundedBorderImageLabelView(image: .init(systemName: "square.and.pencil"), title: .init("generate stage"), style: .primary)
+                    RoundedBorderImageLabelView(image: .init(systemName: "square.and.pencil"), title: .init("generate game"), style: .primary)
                 }
+                .disabled(operators.count == 0)
+                .opacity(operators.count == 0 ? 0.2 : 1.0)
             }
             .padding()
             
-        }        
+        }    
+        .navigationTitle("create new game")
     }
 }
 

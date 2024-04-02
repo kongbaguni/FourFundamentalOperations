@@ -127,7 +127,14 @@
       }
     },
     "create new game" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새로운 게임 만들기"
+          }
+        }
+      }
     },
     "delete" : {
       "localizations" : {
@@ -218,10 +225,24 @@
 
     },
     "game" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "게임"
+          }
+        }
+      }
     },
-    "generate stage" : {
-
+    "generate game" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "게임 생성"
+          }
+        }
+      }
     },
     "Home" : {
       "extractionState" : "manual",
@@ -255,7 +276,14 @@
       }
     },
     "leftCount" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "왼쪽 자리수"
+          }
+        }
+      }
     },
     "nickname" : {
       "localizations" : {
@@ -298,7 +326,14 @@
 
     },
     "Operator" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "연산자"
+          }
+        }
+      }
     },
     "PhoneNumber" : {
       "localizations" : {
@@ -321,7 +356,14 @@
       }
     },
     "qustion count" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문제 개수"
+          }
+        }
+      }
     },
     "Reg Date" : {
       "localizations" : {
@@ -334,7 +376,14 @@
       }
     },
     "rightCount" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오른쪽 자리수"
+          }
+        }
+      }
     },
     "save" : {
       "localizations" : {
@@ -405,8 +454,25 @@
     "test123" : {
 
     },
+    "time attack" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "타임어텍"
+          }
+        }
+      }
+    },
     "time limit" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시간 제한"
+          }
+        }
+      }
     },
     "watchAddAndEarnPointPrompt" : {
       "comment" : "watch ad"
