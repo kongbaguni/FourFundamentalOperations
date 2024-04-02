@@ -11,6 +11,8 @@ class StageModel : Object , ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id:String = ""
     @Persisted var value:String = ""
     @Persisted var ownerId:String = ""
+    @Persisted var isTimeAteck:Bool = false
+    @Persisted var count:Int = 0
     @Persisted var regDateTimeInterval1970:Double = 0
 }
 
@@ -81,7 +83,9 @@ extension StageModel {
             var data:[String:AnyHashable] = [
                 "value":value,
                 "ownerId": userid,
-                "regDateTimeInterval1970" : Date().timeIntervalSince1970
+                "regDateTimeInterval1970" : Date().timeIntervalSince1970,
+                "isTimeAtteck" : model.isTimeAttack,
+                "count" : model.count
             ]
             
             data["id"] = FirebaseFirestoreHelper.gameCollection?.addDocument(data: data) { res in
