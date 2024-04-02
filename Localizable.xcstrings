@@ -1,6 +1,31 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "-" : {
+
+    },
+    "%@" : {
+
+    },
+    "%lld" : {
+
+    },
+    "%lld / %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
+          }
+        }
+      }
+    },
+    "+" : {
+
+    },
+    "0" : {
+
+    },
     "1" : {
 
     },
@@ -101,6 +126,9 @@
         }
       }
     },
+    "create new game" : {
+
+    },
     "delete" : {
       "localizations" : {
         "ko" : {
@@ -186,6 +214,15 @@
     "empty title error msg" : {
       "comment" : "text input"
     },
+    "finish" : {
+
+    },
+    "game" : {
+
+    },
+    "generate stage" : {
+
+    },
     "Home" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -216,6 +253,9 @@
           }
         }
       }
+    },
+    "leftCount" : {
+
     },
     "nickname" : {
       "localizations" : {
@@ -254,6 +294,12 @@
         }
       }
     },
+    "now loading...." : {
+
+    },
+    "Operator" : {
+
+    },
     "PhoneNumber" : {
       "localizations" : {
         "ko" : {
@@ -274,6 +320,9 @@
         }
       }
     },
+    "qustion count" : {
+
+    },
     "Reg Date" : {
       "localizations" : {
         "ko" : {
@@ -283,6 +332,9 @@
           }
         }
       }
+    },
+    "rightCount" : {
+
     },
     "save" : {
       "localizations" : {
@@ -347,7 +399,13 @@
     "Tags already registered" : {
       "comment" : "tag"
     },
+    "test" : {
+
+    },
     "test123" : {
+
+    },
+    "time limit" : {
 
     },
     "watchAddAndEarnPointPrompt" : {
@@ -355,6 +413,12 @@
     },
     "wrongAccountSigninWhenLeave msg" : {
       "comment" : "wrong acount sign in"
+    },
+    "몽키" : {
+
+    },
+    "바나나" : {
+
     }
   },
   "version" : "1.0"

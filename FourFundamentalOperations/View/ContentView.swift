@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
+            List {
                 NavigationLink {
                     AccountMenuView(isLogin: AuthManager.shared.auth.currentUser != nil)
                 } label: {
@@ -22,6 +22,7 @@ struct ContentView: View {
                             image: .init(systemName: "person.fill"),
                             title: .init(account.email ?? account.userId),
                             style: .primary)
+
                     }
                     else {
                         RoundedBorderImageLabelView(
@@ -31,6 +32,15 @@ struct ContentView: View {
 
                     }
                 }
+                
+                
+                NavigationLink {
+                    MakeStageView()
+                } label : {
+                    RoundedBorderImageLabelView(image: .init(systemName:"doc.badge.plus"), title: .init("create new game"), style: .primary)
+                }
+                
+                
             }
             .padding()
             .navigationTitle(.init("Home"))

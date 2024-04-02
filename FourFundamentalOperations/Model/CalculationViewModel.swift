@@ -39,7 +39,7 @@ struct CalculationViewModel {
             }
         }
     }
-    
+    let rawvalue:String
     let left:Int
     let `operator`:Operator
     let right:Int
@@ -48,9 +48,11 @@ struct CalculationViewModel {
         self.left = left
         self.right = right
         self.operator = op
+        rawvalue = "\(left)\(op.rawValue)\(right)"
     }
     
     init(_ value:String) {
+        rawvalue = value
         var left = 0
         var right = 0
         var oper = Operator.plus

@@ -56,6 +56,7 @@ struct ProfileImageView : View {
                     placeholder
                 }
         }
+        .frame(maxWidth: 300)
         .onAppear {
 //            if self.profileImageURL == nil {
 //                self.profileImageURL = account.photoURL

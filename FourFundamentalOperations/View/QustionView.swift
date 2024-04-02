@@ -7,7 +7,9 @@
 
 import Foundation
 import SwiftUI
-
+extension Notification.Name {
+    static let onTouchupNumberButton = Notification.Name("onTouchupNumberButton_observer")
+}
 
 struct NumberInputView : View {
     let data:[[AnyHashable]] = [
@@ -51,6 +53,7 @@ struct NumberInputView : View {
                         KButton(label: .init("\(item)"), style: .primary) { on in
                             if(on) {
                                 inputButtn(item: item)
+                                NotificationCenter.default.post(name: .onTouchupNumberButton, object: result)
                             }
                         }
                     }
@@ -64,8 +67,9 @@ struct QustionView : View {
     let calc:CalculationViewModel
     @State var resultStr:String = ""
     @State var result:Double = 0
+    let onClear:()->Void
     var isCurrent:Bool {
-        calc.answer == result
+        calc.answer == result        
     }
     
     var body: some View {
@@ -86,7 +90,7 @@ struct QustionView : View {
                     .background{
                         RoundedRectangle(cornerRadius: 20)
                             .fill(
-                                isCurrent ? Color.teal : 
+                                isCurrent ? Color.teal :
                                 Color.cardBackground
                             )
                             .shadow(radius: 10, x:5, y: 5)
@@ -95,11 +99,28 @@ struct QustionView : View {
             }
             NumberInputView(input: $resultStr, result: $result)
         }
+        .onAppear {
+            print("start \(calc.rawvalue)")
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .onTouchupNumberButton, object: nil), perform: { noti in
+            print(noti.object ?? "")
+            if self.isCurrent {
+                print("맞았다! 정답!")
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                    resultStr = ""
+                    result = 0
+                    self.onClear()
+                }
+
+            }
+        })
     }
 }
 
 #Preview {
     VStack {
-        QustionView(calc: .init("5*10"))
+        QustionView(calc: .init("5*10")) {
+            
+        }
     }
 }

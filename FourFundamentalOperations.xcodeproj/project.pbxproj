@@ -11,6 +11,12 @@
 		1B0019462BB5496300EEEADF /* CalculationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0019452BB5496300EEEADF /* CalculationViewModel.swift */; };
 		1B0019482BB64C7700EEEADF /* QustionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0019472BB64C7700EEEADF /* QustionView.swift */; };
 		1B00194A2BB65AED00EEEADF /* KButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0019492BB65AED00EEEADF /* KButton.swift */; };
+		1B00194C2BB6814F00EEEADF /* StageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B00194B2BB6814F00EEEADF /* StageModel.swift */; };
+		1B00194E2BB6826B00EEEADF /* MakeStageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B00194D2BB6826B00EEEADF /* MakeStageView.swift */; };
+		1B0019502BB6831500EEEADF /* KNumberSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B00194F2BB6831500EEEADF /* KNumberSelect.swift */; };
+		1B0019522BB6864500EEEADF /* KSelectInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0019512BB6864500EEEADF /* KSelectInput.swift */; };
+		1B0019542BB6870200EEEADF /* KToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0019532BB6870200EEEADF /* KToggleButton.swift */; };
+		1B0019562BB6A1F100EEEADF /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0019552BB6A1F100EEEADF /* GameView.swift */; };
 		1B47E8702BA03FD9009BFF65 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E86F2BA03FD9009BFF65 /* AuthManager.swift */; };
 		1B47E8732BA040A8009BFF65 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E8722BA040A8009BFF65 /* UIApplication+Extensions.swift */; };
 		1B47E87B2BA0421B009BFF65 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E87A2BA0421B009BFF65 /* AccountModel.swift */; };
@@ -23,6 +29,8 @@
 		1B47E88C2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E88B2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift */; };
 		1B47E88E2BA42FF5009BFF65 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E88D2BA42FF5009BFF65 /* ProfileView.swift */; };
 		1B47E8932BA433AA009BFF65 /* URLCache+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */; };
+		1B5038EA2BBAA0F200F225F4 /* GenerateStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5038E92BBAA0F200F225F4 /* GenerateStateModel.swift */; };
+		1B5038EC2BBAA45D00F225F4 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5038EB2BBAA45D00F225F4 /* Int+Extensions.swift */; };
 		1B86AC8C2B9835660081D600 /* FourFundamentalOperationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86AC8B2B9835660081D600 /* FourFundamentalOperationsApp.swift */; };
 		1B86AC8E2B9835660081D600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86AC8D2B9835660081D600 /* ContentView.swift */; };
 		1B86AC902B9835670081D600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B86AC8F2B9835670081D600 /* Assets.xcassets */; };
@@ -78,6 +86,12 @@
 		1B0019452BB5496300EEEADF /* CalculationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationViewModel.swift; sourceTree = "<group>"; };
 		1B0019472BB64C7700EEEADF /* QustionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QustionView.swift; sourceTree = "<group>"; };
 		1B0019492BB65AED00EEEADF /* KButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KButton.swift; sourceTree = "<group>"; };
+		1B00194B2BB6814F00EEEADF /* StageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageModel.swift; sourceTree = "<group>"; };
+		1B00194D2BB6826B00EEEADF /* MakeStageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeStageView.swift; sourceTree = "<group>"; };
+		1B00194F2BB6831500EEEADF /* KNumberSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KNumberSelect.swift; sourceTree = "<group>"; };
+		1B0019512BB6864500EEEADF /* KSelectInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSelectInput.swift; sourceTree = "<group>"; };
+		1B0019532BB6870200EEEADF /* KToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KToggleButton.swift; sourceTree = "<group>"; };
+		1B0019552BB6A1F100EEEADF /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		1B47E86E2BA03FAD009BFF65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1B47E86F2BA03FD9009BFF65 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		1B47E8722BA040A8009BFF65 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
@@ -90,6 +104,8 @@
 		1B47E88B2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountConfirmView.swift; sourceTree = "<group>"; };
 		1B47E88D2BA42FF5009BFF65 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+Extensions.swift"; sourceTree = "<group>"; };
+		1B5038E92BBAA0F200F225F4 /* GenerateStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateStateModel.swift; sourceTree = "<group>"; };
+		1B5038EB2BBAA45D00F225F4 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		1B86AC882B9835660081D600 /* FourFundamentalOperations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourFundamentalOperations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B86AC8B2B9835660081D600 /* FourFundamentalOperationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourFundamentalOperationsApp.swift; sourceTree = "<group>"; };
 		1B86AC8D2B9835660081D600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,6 +181,7 @@
 				1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */,
 				1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */,
 				1BE50BD32BB3B94E007ADB10 /* UIImage+Extensions.swift */,
+				1B5038EB2BBAA45D00F225F4 /* Int+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -176,6 +193,8 @@
 				1BE50BBE2BB13D03007ADB10 /* ProfileModel.swift */,
 				1BE50BD12BB3B6C3007ADB10 /* FirestorageCacheModel.swift */,
 				1B0019452BB5496300EEEADF /* CalculationViewModel.swift */,
+				1B00194B2BB6814F00EEEADF /* StageModel.swift */,
+				1B5038E92BBAA0F200F225F4 /* GenerateStateModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +269,11 @@
 				1BE50BCD2BB2A887007ADB10 /* ProfileImageView.swift */,
 				1B0019472BB64C7700EEEADF /* QustionView.swift */,
 				1B0019492BB65AED00EEEADF /* KButton.swift */,
+				1B00194D2BB6826B00EEEADF /* MakeStageView.swift */,
+				1B00194F2BB6831500EEEADF /* KNumberSelect.swift */,
+				1B0019512BB6864500EEEADF /* KSelectInput.swift */,
+				1B0019532BB6870200EEEADF /* KToggleButton.swift */,
+				1B0019552BB6A1F100EEEADF /* GameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -405,10 +429,14 @@
 				1B86AC8E2B9835660081D600 /* ContentView.swift in Sources */,
 				1B47E8802BA0428F009BFF65 /* FirebaseFirestoreHelper.swift in Sources */,
 				1BE50BD42BB3B94E007ADB10 /* UIImage+Extensions.swift in Sources */,
+				1B00194E2BB6826B00EEEADF /* MakeStageView.swift in Sources */,
 				1B47E88C2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift in Sources */,
 				1B47E87D2BA04247009BFF65 /* CustomError.swift in Sources */,
+				1B5038EA2BBAA0F200F225F4 /* GenerateStateModel.swift in Sources */,
+				1B0019542BB6870200EEEADF /* KToggleButton.swift in Sources */,
 				1B47E88E2BA42FF5009BFF65 /* ProfileView.swift in Sources */,
 				1B47E8932BA433AA009BFF65 /* URLCache+Extensions.swift in Sources */,
+				1B0019522BB6864500EEEADF /* KSelectInput.swift in Sources */,
 				1BE50BD22BB3B6C3007ADB10 /* FirestorageCacheModel.swift in Sources */,
 				1B86ACD42B983DE30081D600 /* AccountMenuView.swift in Sources */,
 				1B0019462BB5496300EEEADF /* CalculationViewModel.swift in Sources */,
@@ -419,14 +447,18 @@
 				1B0019482BB64C7700EEEADF /* QustionView.swift in Sources */,
 				1B00194A2BB65AED00EEEADF /* KButton.swift in Sources */,
 				1BE50BC52BB15623007ADB10 /* ProfileEditView.swift in Sources */,
+				1B5038EC2BBAA45D00F225F4 /* Int+Extensions.swift in Sources */,
 				1BE50BBF2BB13D03007ADB10 /* ProfileModel.swift in Sources */,
 				1B86ACD62B983E390081D600 /* ButtonView.swift in Sources */,
+				1B0019562BB6A1F100EEEADF /* GameView.swift in Sources */,
+				1B00194C2BB6814F00EEEADF /* StageModel.swift in Sources */,
 				1B86AC8C2B9835660081D600 /* FourFundamentalOperationsApp.swift in Sources */,
 				1BE50BCC2BB2A7A1007ADB10 /* KPhotosPicker.swift in Sources */,
 				1BE50BC22BB1411A007ADB10 /* Realm+Extensions.swift in Sources */,
 				1BE50BCE2BB2A887007ADB10 /* ProfileImageView.swift in Sources */,
 				1B47E8702BA03FD9009BFF65 /* AuthManager.swift in Sources */,
 				1BE50BC32BB1411A007ADB10 /* Realm.Object+Extensions.swift in Sources */,
+				1B0019502BB6831500EEEADF /* KNumberSelect.swift in Sources */,
 				1BE50BC72BB1577E007ADB10 /* KTextEditor.swift in Sources */,
 				1BE50BCA2BB2972C007ADB10 /* FirebaseFirestorageHelper.swift in Sources */,
 				1BE50BBD2BAD234D007ADB10 /* KTextField.swift in Sources */,

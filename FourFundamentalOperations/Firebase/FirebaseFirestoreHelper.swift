@@ -27,6 +27,10 @@ struct FirebaseFirestoreHelper {
         }
         return nil
     }
+    
+    static var gameCollection:CollectionReference? {
+        publicCollection?.document("data").collection("game")
+    }
         
 
 }
