@@ -7,24 +7,46 @@
 
 import Foundation
 import RealmSwift
+import SwiftUI
+
 class StageModel : Object , ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id:String = ""
     @Persisted var value:String = ""
     @Persisted var ownerId:String = ""
-    @Persisted var isTimeAteck:Bool = false
-    @Persisted var count:Int = 0
+    @Persisted var isTimeAtack:Bool = false
     @Persisted var regDateTimeInterval1970:Double = 0
 }
 
 extension StageModel {
+    /** 계산식 리스트 */
     var calculations : [CalculationViewModel] {
         value.components(separatedBy: ",").map { item in
             return .init(item)
         }
     }
     
+    /** 만든사람 정보 */
     var owner:ProfileModel? {
         Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: ownerId)
+    }
+    
+    /** 새로 만들어진 Stage 정보 가져오기 */
+    static func sync(complete:@escaping(Error?)->Void) {
+        let last = Realm.shared.objects(StageModel.self).sorted(byKeyPath: "regDateTimeInterval1970", ascending: true).last
+        let date = last?.regDateTimeInterval1970 ?? 0
+        FirebaseFirestoreHelper.gameCollection?.whereField("regDateTimeInterval1970", isGreaterThan: date)
+            .getDocuments(completion: { snapshot, error in
+                if error == nil {
+                    let realm = Realm.shared
+                    realm.beginWrite()
+                    _ = snapshot?.documents.map({ snapshot in
+                        let data = snapshot.data()
+                        realm.create(StageModel.self, value: data, update: .all)
+                    })
+                    try! realm.commitWrite()
+                }
+                complete(error)
+            })
     }
     
     static func makeStage(
@@ -84,8 +106,7 @@ extension StageModel {
                 "value":value,
                 "ownerId": userid,
                 "regDateTimeInterval1970" : Date().timeIntervalSince1970,
-                "isTimeAtteck" : model.isTimeAttack,
-                "count" : model.count
+                "isTimeAtack" : model.isTimeAttack,
             ]
             
             data["id"] = FirebaseFirestoreHelper.gameCollection?.addDocument(data: data) { res in
@@ -104,5 +125,63 @@ extension StageModel {
         }
 }
 
+extension StageModel {
+    var regDt:Date {
+        return .init(timeIntervalSince1970: regDateTimeInterval1970)
+    }
+    static let Stage1 = StageModel(value: [
+        "id":"1234",
+        "value":"1+2,1+1,3-1",
+        "ownerId":"kongbaguni",
+        "isTimeAttack":false,
+        "regDateTimeInterval1970":0,
+        "count" : 3
+    ])
+    
+    var operations:[String] {
+        var result:[String] = []
+        func isIn(str:Character)->Bool {
+            value.filter { char in
+                return char == str
+            }.count > 0
+        }
+        for item in ["+","-","*","/"] {
+            if isIn(str: item.first!) {
+                result.append(item)
+            }
+        }
+        return result
+    }
+    
+    var count:Int {
+        value.components(separatedBy: ",").count
+    }
+    
+    var title:some View  {
+        HStack {
+            Text("\(count)")
+                .bold()
+                .foregroundStyle(.orange)
+            if isTimeAtack {
+                Text("sec")
+                Text("time attack")
+            }
+            else {
+                Text("qustions")
+            }            
+            Text(operations.joined(separator: ","))
+                .foregroundStyle(.orange)
+            Spacer()
+            Text(regDt.formatted(date:.numeric, time: .shortened))
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+    }
+}
 
 
+#Preview {
+    List {
+        StageModel.Stage1.title
+    }
+}

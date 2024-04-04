@@ -16,6 +16,19 @@ class ProfileModel : Object , ObjectKeyIdentifiable {
 }
 
 extension ProfileModel {
+    static func getProfile(id:String, complete:@escaping (Error?)->Void) {
+        FirebaseFirestoreHelper.profileCollection.document(id).getDocument { snapShot, error in
+            if let shot = snapShot, var data = shot.data() {
+                data["id"] = shot.documentID
+                let realm = Realm.shared
+                realm.beginWrite()
+                realm.create(ProfileModel.self, value: data, update: .all)
+                try! realm.commitWrite()
+            }
+            complete(error)
+        }
+    }
+    
     static var myProfile:ProfileModel? {
         
         guard let id = AuthManager.shared.userId else {
@@ -70,5 +83,13 @@ extension ProfileModel {
         FirebaseFirestorageHelper.shared.getURL(path: "profileImage", id: id) { url, error in
             complete(url,error)
         }        
+    }
+    
+    static var Test:ProfileModel {
+        return .init(value: [
+            "id":"qwe123qwe",
+            "nickname":"콩바구니",
+            "aboutMe":"안녕"
+        ])
     }
 }

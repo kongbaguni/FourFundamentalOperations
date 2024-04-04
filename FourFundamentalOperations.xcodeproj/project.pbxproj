@@ -31,6 +31,8 @@
 		1B47E8932BA433AA009BFF65 /* URLCache+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */; };
 		1B5038EA2BBAA0F200F225F4 /* GenerateStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5038E92BBAA0F200F225F4 /* GenerateStateModel.swift */; };
 		1B5038EC2BBAA45D00F225F4 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5038EB2BBAA45D00F225F4 /* Int+Extensions.swift */; };
+		1B5038EE2BBBF6FC00F225F4 /* StageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5038ED2BBBF6FC00F225F4 /* StageListView.swift */; };
+		1B5038F02BBBFBAA00F225F4 /* EnvironmentValues+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5038EF2BBBFBAA00F225F4 /* EnvironmentValues+Extensions.swift */; };
 		1B86AC8C2B9835660081D600 /* FourFundamentalOperationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86AC8B2B9835660081D600 /* FourFundamentalOperationsApp.swift */; };
 		1B86AC8E2B9835660081D600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86AC8D2B9835660081D600 /* ContentView.swift */; };
 		1B86AC902B9835670081D600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B86AC8F2B9835670081D600 /* Assets.xcassets */; };
@@ -106,6 +108,8 @@
 		1B47E8922BA433AA009BFF65 /* URLCache+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+Extensions.swift"; sourceTree = "<group>"; };
 		1B5038E92BBAA0F200F225F4 /* GenerateStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateStateModel.swift; sourceTree = "<group>"; };
 		1B5038EB2BBAA45D00F225F4 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		1B5038ED2BBBF6FC00F225F4 /* StageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageListView.swift; sourceTree = "<group>"; };
+		1B5038EF2BBBFBAA00F225F4 /* EnvironmentValues+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Extensions.swift"; sourceTree = "<group>"; };
 		1B86AC882B9835660081D600 /* FourFundamentalOperations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourFundamentalOperations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B86AC8B2B9835660081D600 /* FourFundamentalOperationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourFundamentalOperationsApp.swift; sourceTree = "<group>"; };
 		1B86AC8D2B9835660081D600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				1BE50BCF2BB3B281007ADB10 /* View+Extensions.swift */,
 				1BE50BD32BB3B94E007ADB10 /* UIImage+Extensions.swift */,
 				1B5038EB2BBAA45D00F225F4 /* Int+Extensions.swift */,
+				1B5038EF2BBBFBAA00F225F4 /* EnvironmentValues+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				1B0019512BB6864500EEEADF /* KSelectInput.swift */,
 				1B0019532BB6870200EEEADF /* KToggleButton.swift */,
 				1B0019552BB6A1F100EEEADF /* GameView.swift */,
+				1B5038ED2BBBF6FC00F225F4 /* StageListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 				1B47E88A2BA429B5009BFF65 /* RoundedBorderImageLabelView.swift in Sources */,
 				1B47E8732BA040A8009BFF65 /* UIApplication+Extensions.swift in Sources */,
 				1B0019482BB64C7700EEEADF /* QustionView.swift in Sources */,
+				1B5038EE2BBBF6FC00F225F4 /* StageListView.swift in Sources */,
 				1B00194A2BB65AED00EEEADF /* KButton.swift in Sources */,
 				1BE50BC52BB15623007ADB10 /* ProfileEditView.swift in Sources */,
 				1B5038EC2BBAA45D00F225F4 /* Int+Extensions.swift in Sources */,
@@ -460,6 +467,7 @@
 				1BE50BC32BB1411A007ADB10 /* Realm.Object+Extensions.swift in Sources */,
 				1B0019502BB6831500EEEADF /* KNumberSelect.swift in Sources */,
 				1BE50BC72BB1577E007ADB10 /* KTextEditor.swift in Sources */,
+				1B5038F02BBBFBAA00F225F4 /* EnvironmentValues+Extensions.swift in Sources */,
 				1BE50BCA2BB2972C007ADB10 /* FirebaseFirestorageHelper.swift in Sources */,
 				1BE50BBD2BAD234D007ADB10 /* KTextField.swift in Sources */,
 			);

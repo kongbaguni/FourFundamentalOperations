@@ -39,14 +39,20 @@ struct ContentView: View {
                 } label : {
                     RoundedBorderImageLabelView(image: .init(systemName:"doc.badge.plus"), title: .init("create new game"), style: .primary)
                 }
-                
-                
+                Section {
+                    StageListView()
+                }
             }
             .padding()
             .navigationTitle(.init("Home"))
             .listStyle(.insetGrouped)
+            
+            
         }
         .onAppear {
+            StageModel.sync { error in
+                
+            }
             account = AuthManager.shared.accountModel
         }
         .onReceive(NotificationCenter.default.publisher(for: .authDidSucessed), perform: { _ in

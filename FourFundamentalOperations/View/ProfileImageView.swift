@@ -10,14 +10,14 @@ import RealmSwift
 import SDWebImageSwiftUI
 
 struct ProfileImageView : View {
-    let account:AccountModel
+    @Environment(\.isPreview) var isPreview
     @ObservedRealmObject var profile:ProfileModel
     @State var profileImageURL:URL? = nil
 
-    init(account:AccountModel) {
-        self.account = account
-        self.profile = account.myProfile ?? ProfileModel()
+    init(profile:ProfileModel) {
+        self.profile = profile
     }
+    
     var placeholder : some View {
         Image(systemName: "person.fill")
             .resizable()
@@ -58,21 +58,21 @@ struct ProfileImageView : View {
         }
         .frame(maxWidth: 300)
         .onAppear {
-//            if self.profileImageURL == nil {
-//                self.profileImageURL = account.photoURL
-//            }
-            account.getMyProfileImageURL { url, error in
-                DispatchQueue.main.async {
-                    self.profileImageURL = url
+            if isPreview {
+                self.profileImageURL = URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQJs3r3gRot-57vHrAZfYX8uKRbw8CkyEQa-NdFJ1EnzF5AKtTr280BWejnw&s")
+            } else {
+                profile.getProfileImageUrl { url, error in
+                    DispatchQueue.main.async {
+                        self.profileImageURL = url
+                    }
                 }
             }
-
         }
         .onReceive(NotificationCenter.default.publisher(for: .profilePhotoDidUpdated), perform: { noti in
             if let info = noti.userInfo,
                let url = info["url"] as? String,
                let id = info["id"] as? String {
-                if account.userId == id {
+                if profile.id == id {
                     profileImageURL = URL(string: url)
                 }
             }
@@ -82,5 +82,5 @@ struct ProfileImageView : View {
 }
 
 #Preview {
-    ProfileImageView( account: .init(userId: "kongbaguni", accountRegDt: Date(), accountLastSigninDt: Date(), email: "kongbaguni@gmail.com", phoneNumber: "010-1234-1234", photoURL: URL(string: "https://pbs.twimg.com/media/EiQTMoDXsAAIkD2?format=png&name=360x360"), isAnonymous: false))
+    ProfileImageView(profile: ProfileModel.Test)
 }

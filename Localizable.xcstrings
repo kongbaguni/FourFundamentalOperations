@@ -365,6 +365,16 @@
         }
       }
     },
+    "qustions" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문제"
+          }
+        }
+      }
+    },
     "Reg Date" : {
       "localizations" : {
         "ko" : {
@@ -391,6 +401,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "저장"
+          }
+        }
+      }
+    },
+    "sec" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "초"
           }
         }
       }
