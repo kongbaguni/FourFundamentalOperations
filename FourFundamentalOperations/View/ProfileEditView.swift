@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
-
+import RealmSwift
 
 struct ProfileEditView: View {
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-    let account:AccountModel
+    var accountId:String? {
+        AuthManager.shared.userId
+    }
+    
     @State var selectImageData:Data? = nil
     @State var nickname:String = ""
     @State var aboutMe:String = ""
@@ -49,8 +53,8 @@ struct ProfileEditView: View {
                     if error == nil {
                         self.presentationMode.wrappedValue.dismiss()
                     }
-                    if let data = selectImageData {
-                        FirebaseFirestorageHelper.shared.uploadData(data: data, contentType: .jpeg, uploadPath: "profile", id: account.userId) { error in
+                    if let data = selectImageData, let id = accountId {
+                        FirebaseFirestorageHelper.shared.uploadData(data: data, contentType: .jpeg, uploadPath: "profile", id: id) { error in
                             self.error = error
                         }
                     }
@@ -67,20 +71,26 @@ struct ProfileEditView: View {
             Alert(title: .init("alert"), message: .init(error!.localizedDescription))
         })
         .onAppear {
-            if let model = account.myProfile {
-                nickname = model.nickname
-                aboutMe = model.aboutMe
+            guard let id = accountId else {
+                return
             }
-            photoURL = account.photoURL
-            account.getMyProfileImageURL { url, error in
-                photoURL = url
+            ProfileModel.getProfile(id: id) { error in
+                if let model = Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: id) {
+                    nickname = model.nickname
+                    aboutMe = model.aboutMe
+                    print("----- \(id) \(nickname) \(aboutMe) \(model)")
+                    model.getProfileImageUrl(complete: { url, error in
+                        photoURL = url
+                    })
+                }
             }
+        
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        ProfileEditView(account:.init(userId: "kongbaguni", accountRegDt: Date(), accountLastSigninDt: Date(), email: "kongbaguni@gmail.com", phoneNumber: "010-1234-1234", photoURL: URL(string: "https://mblogthumb-phinf.pstatic.net/MjAyMTAyMDRfNjIg/MDAxNjEyNDA4OTk5NDQ4.6UGs399-0EXjIUwwWsYg7o66lDb-MPOVQ-zNDy1Wnnkg.m-WZz0IKKnc5OO2mjY5dOD-0VsfpXg7WVGgds6fKwnIg.JPEG.sunny_side_up12/1612312679152%EF%BC%8D2.jpg?type=w800"), isAnonymous: false))
+        ProfileEditView()
     }
 }

@@ -91,5 +91,6 @@ extension ProfileModel {
             "nickname":"콩바구니",
             "aboutMe":"안녕"
         ])
+        
     }
 }

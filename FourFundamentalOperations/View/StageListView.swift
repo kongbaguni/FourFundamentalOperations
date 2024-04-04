@@ -53,8 +53,10 @@ struct StageListView: View {
     }
     
     func load() {
-        StageModel.sync { error in
-            self.error = error
+        if !isPreview {
+            StageModel.sync { error in
+                self.error = error
+            }
         }
     }
 }

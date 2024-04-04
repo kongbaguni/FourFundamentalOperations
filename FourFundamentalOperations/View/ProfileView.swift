@@ -11,19 +11,14 @@ import RealmSwift
 
 struct ProfileView: View {
     @Environment(\.isPreview) var isPreview
-    
     @State var account:AccountModel? = nil
     @ObservedRealmObject var profile:ProfileModel
     
-    init(id:String) {
-        if AuthManager.shared.userId == id {
+    init(profile:ProfileModel) {
+        if AuthManager.shared.userId == profile.id {
             account = AuthManager.shared.accountModel
         }
-        #if DEBUG
-            profile = ProfileModel.Test
-        #else
-            profile = Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: id) ?? ProfileModel()
-        #endif
+        self.profile = profile
     }
     
     var body: some View {
@@ -92,7 +87,7 @@ struct ProfileView: View {
                 }
             }
         }
-        .padding()       
+        .padding()
         
     }
        
@@ -100,11 +95,8 @@ struct ProfileView: View {
 
 #Preview {
     NavigationStack {
-//        ProfileView(
-//            account: .init(userId: "kongbaguni", accountRegDt: Date(), accountLastSigninDt: Date(), email: "kongbaguni@gmail.com", phoneNumber: "010-1234-1234", photoURL: URL(string: "https://mblogthumb-phinf.pstatic.net/MjAyMTAyMDRfNjIg/MDAxNjEyNDA4OTk5NDQ4.6UGs399-0EXjIUwwWsYg7o66lDb-MPOVQ-zNDy1Wnnkg.m-WZz0IKKnc5OO2mjY5dOD-0VsfpXg7WVGgds6fKwnIg.JPEG.sunny_side_up12/1612312679152%EF%BC%8D2.jpg?type=w800"), isAnonymous: false)
-//        )
         
-        ProfileView(id: "kongbaguni")
+        ProfileView(profile: ProfileModel.Test)
         
     }
 }

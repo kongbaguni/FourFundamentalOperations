@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import RealmSwift
 /**
  계정 관련 메뉴 표시하는 컴포넌트
  */
 struct AccountMenuView : View {
+    @Environment(\.isPreview) var isPreview
     @State var isLogin = false
     @State var isAnonymousLogin = false
     @State var error:Error? = nil {
@@ -24,8 +26,14 @@ struct AccountMenuView : View {
     
     var loginView : some View {
         Group {
-            if let id = AuthManager.shared.userId {
-                ProfileView(id: id)
+            if isPreview {
+                ProfileView(profile: ProfileModel.Test)
+            } else {
+                if let id = AuthManager.shared.userId {
+                    if let profile = Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: id) {
+                        ProfileView(profile: profile)
+                    }
+                }
             }
             /** 로그아웃 버튼 */
             ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .secondary) {
@@ -112,7 +120,7 @@ struct AccountMenuView : View {
         }
         .toolbar {
             if isLogin {
-                NavigationLink(destination: ProfileEditView(account: AuthManager.shared.accountModel!)) {
+                NavigationLink(destination: ProfileEditView()) {
                     VStack {
                         Image(systemName: "square.and.pencil")
                         Text("edit profile")
@@ -148,9 +156,11 @@ struct AccountMenuView : View {
         
     
     func update() {
-        DispatchQueue.main.async {
-            isLogin = AuthManager.shared.auth.currentUser != nil
-            isAnonymousLogin = AuthManager.shared.auth.currentUser?.isAnonymous ?? false
+        if !isPreview {
+            DispatchQueue.main.async {
+                isLogin = AuthManager.shared.auth.currentUser != nil
+                isAnonymousLogin = AuthManager.shared.auth.currentUser?.isAnonymous ?? false
+            }
         }
     }
 }
