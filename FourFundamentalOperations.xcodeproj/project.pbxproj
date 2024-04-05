@@ -67,6 +67,7 @@
 		1B86ACD12B9839DD0081D600 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1B86ACD02B9839DD0081D600 /* FirebaseStorageCombine-Community */; };
 		1B86ACD42B983DE30081D600 /* AccountMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86ACD32B983DE30081D600 /* AccountMenuView.swift */; };
 		1B86ACD62B983E390081D600 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86ACD52B983E390081D600 /* ButtonView.swift */; };
+		1BB2D4282BBFB2AC00C398A2 /* EnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2D4272BBFB2AC00C398A2 /* EnergyView.swift */; };
 		1BDE525A2BA036E60048158E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDE52592BA036E60048158E /* GoogleSignIn */; };
 		1BDE525C2BA036E60048158E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDE525B2BA036E60048158E /* GoogleSignInSwift */; };
 		1BE50BBD2BAD234D007ADB10 /* KTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE50BBC2BAD234D007ADB10 /* KTextField.swift */; };
@@ -118,6 +119,7 @@
 		1B86AC992B98397E0081D600 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B86ACD32B983DE30081D600 /* AccountMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuView.swift; sourceTree = "<group>"; };
 		1B86ACD52B983E390081D600 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		1BB2D4272BBFB2AC00C398A2 /* EnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyView.swift; sourceTree = "<group>"; };
 		1BE50BBC2BAD234D007ADB10 /* KTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTextField.swift; sourceTree = "<group>"; };
 		1BE50BBE2BB13D03007ADB10 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		1BE50BC02BB1411A007ADB10 /* Realm+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Realm+Extensions.swift"; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				1B0019532BB6870200EEEADF /* KToggleButton.swift */,
 				1B0019552BB6A1F100EEEADF /* GameView.swift */,
 				1B5038ED2BBBF6FC00F225F4 /* StageListView.swift */,
+				1BB2D4272BBFB2AC00C398A2 /* EnergyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				1BE50BD42BB3B94E007ADB10 /* UIImage+Extensions.swift in Sources */,
 				1B00194E2BB6826B00EEEADF /* MakeStageView.swift in Sources */,
 				1B47E88C2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift in Sources */,
+				1BB2D4282BBFB2AC00C398A2 /* EnergyView.swift in Sources */,
 				1B47E87D2BA04247009BFF65 /* CustomError.swift in Sources */,
 				1B5038EA2BBAA0F200F225F4 /* GenerateStateModel.swift in Sources */,
 				1B0019542BB6870200EEEADF /* KToggleButton.swift in Sources */,

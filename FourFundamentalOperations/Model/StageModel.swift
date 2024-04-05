@@ -30,6 +30,31 @@ extension StageModel {
         Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: ownerId)
     }
     
+    enum Difficulty : Int{
+        case easy = 1
+        case normal = 2
+        case hard = 3
+        case ultra = 4
+        var imageView : some View {
+            EnergyView(count: self.rawValue, length: 4)
+        }
+    }
+    
+    /** 난이도 */
+    var difficulty : Difficulty {
+        let value = value.components(separatedBy: ",").first
+        switch value?.count ?? 0 {
+        case 0,1,2,3:
+            return .easy
+        case 4:
+            return .normal
+        case 5:
+            return .hard
+        default:
+            return .ultra
+        }
+    }
+    
     /** 새로 만들어진 Stage 정보 가져오기 */
     static func sync(complete:@escaping(Error?)->Void) {
         let last = Realm.shared.objects(StageModel.self).sorted(byKeyPath: "regDateTimeInterval1970", ascending: true).last
@@ -131,7 +156,7 @@ extension StageModel {
     }
     static let Stage1 = StageModel(value: [
         "id":"1234",
-        "value":"1+2,1+1,3-1",
+        "value":"11+22,21+1,33-1",
         "ownerId":"kongbaguni",
         "isTimeAttack":false,
         "regDateTimeInterval1970":0,
@@ -159,6 +184,8 @@ extension StageModel {
     
     var title:some View  {
         HStack {
+            difficulty.imageView
+
             Text("\(count)")
                 .bold()
                 .foregroundStyle(.orange)
@@ -168,9 +195,12 @@ extension StageModel {
             }
             else {
                 Text("qustions")
-            }            
+            }
+                        
             Text(operations.joined(separator: ","))
                 .foregroundStyle(.orange)
+            
+
             Spacer()
             Text(regDt.formatted(date:.numeric, time: .shortened))
                 .font(.caption)
