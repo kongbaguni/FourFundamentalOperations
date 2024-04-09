@@ -252,6 +252,17 @@
         }
       }
     },
+    "Got %d current" : {
+      "comment" : "게임 결과",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 문제 풀었다"
+          }
+        }
+      }
+    },
     "Home" : {
       "extractionState" : "manual",
       "localizations" : {

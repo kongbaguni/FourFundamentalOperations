@@ -118,13 +118,20 @@ extension KTimer {
     
     var listView : some View {
         Group {
+            let qcount = logs.filter { log in
+                log.action == .lap
+            }.count
+            Text(String(
+                format:NSLocalizedString("Got %d current", comment:"게임 결과"),qcount))
+            
             ForEach(logs, id: \.self) { log in
+                let sec = log.getDistance(data: self.logs)
                 switch log.action {
                 case .lap:
                     HStack {
                         Text(log.desc)
                         KTimerGraph(value: log.getDistance(data: self.logs), max: 20.0)
-                        Text(String(format:NSLocalizedString("%0.2f sec", comment: "초단위 포메팅"),log.getDistance(data: self.logs)))
+                        Text(String(format:NSLocalizedString("%0.2f sec", comment: "초단위 포메팅"),sec))
                             .frame(width: 120, height: 25)
                             .overlay {
                                 RoundedRectangle(cornerRadius: 10)
@@ -177,7 +184,9 @@ fileprivate struct KTimerView : View {
                     let now = curDate.timeIntervalSince1970
                     let interval = now - firstTime
                     let limit = Double(self.timeLimit ?? 0)
-                    makeView(time: limit - interval, max: limit)
+                    if limit - interval > 0 {
+                        makeView(time: limit - interval, max: limit)
+                    }
                 }
                 
             case .normal:
