@@ -67,6 +67,8 @@
 		1B86ACD12B9839DD0081D600 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1B86ACD02B9839DD0081D600 /* FirebaseStorageCombine-Community */; };
 		1B86ACD42B983DE30081D600 /* AccountMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86ACD32B983DE30081D600 /* AccountMenuView.swift */; };
 		1B86ACD62B983E390081D600 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B86ACD52B983E390081D600 /* ButtonView.swift */; };
+		1B8A92892BC3B53900AA12DD /* KTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8A92882BC3B53900AA12DD /* KTimer.swift */; };
+		1B8A928B2BC5058800AA12DD /* KTimerGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8A928A2BC5058800AA12DD /* KTimerGraph.swift */; };
 		1BB2D4282BBFB2AC00C398A2 /* EnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2D4272BBFB2AC00C398A2 /* EnergyView.swift */; };
 		1BDE525A2BA036E60048158E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDE52592BA036E60048158E /* GoogleSignIn */; };
 		1BDE525C2BA036E60048158E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDE525B2BA036E60048158E /* GoogleSignInSwift */; };
@@ -119,6 +121,8 @@
 		1B86AC992B98397E0081D600 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B86ACD32B983DE30081D600 /* AccountMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuView.swift; sourceTree = "<group>"; };
 		1B86ACD52B983E390081D600 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		1B8A92882BC3B53900AA12DD /* KTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTimer.swift; sourceTree = "<group>"; };
+		1B8A928A2BC5058800AA12DD /* KTimerGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTimerGraph.swift; sourceTree = "<group>"; };
 		1BB2D4272BBFB2AC00C398A2 /* EnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyView.swift; sourceTree = "<group>"; };
 		1BE50BBC2BAD234D007ADB10 /* KTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTextField.swift; sourceTree = "<group>"; };
 		1BE50BBE2BB13D03007ADB10 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -199,7 +203,6 @@
 				1B47E87A2BA0421B009BFF65 /* AccountModel.swift */,
 				1BE50BBE2BB13D03007ADB10 /* ProfileModel.swift */,
 				1BE50BD12BB3B6C3007ADB10 /* FirestorageCacheModel.swift */,
-				1B0019452BB5496300EEEADF /* CalculationViewModel.swift */,
 				1B00194B2BB6814F00EEEADF /* StageModel.swift */,
 				1B5038E92BBAA0F200F225F4 /* GenerateStateModel.swift */,
 			);
@@ -235,6 +238,7 @@
 		1B86AC8A2B9835660081D600 /* FourFundamentalOperations */ = {
 			isa = PBXGroup;
 			children = (
+				1B8A92872BC3B52100AA12DD /* Singlton */,
 				1BE50BC82BB17059007ADB10 /* ViewModel */,
 				1B47E8812BA04363009BFF65 /* FourFundamentalOperations.entitlements */,
 				1B47E87F2BA0428F009BFF65 /* Firebase */,
@@ -283,13 +287,23 @@
 				1B0019552BB6A1F100EEEADF /* GameView.swift */,
 				1B5038ED2BBBF6FC00F225F4 /* StageListView.swift */,
 				1BB2D4272BBFB2AC00C398A2 /* EnergyView.swift */,
+				1B8A928A2BC5058800AA12DD /* KTimerGraph.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1B8A92872BC3B52100AA12DD /* Singlton */ = {
+			isa = PBXGroup;
+			children = (
+				1B8A92882BC3B53900AA12DD /* KTimer.swift */,
+			);
+			path = Singlton;
 			sourceTree = "<group>";
 		};
 		1BE50BC82BB17059007ADB10 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1B0019452BB5496300EEEADF /* CalculationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -438,6 +452,7 @@
 				1B86AC8E2B9835660081D600 /* ContentView.swift in Sources */,
 				1B47E8802BA0428F009BFF65 /* FirebaseFirestoreHelper.swift in Sources */,
 				1BE50BD42BB3B94E007ADB10 /* UIImage+Extensions.swift in Sources */,
+				1B8A92892BC3B53900AA12DD /* KTimer.swift in Sources */,
 				1B00194E2BB6826B00EEEADF /* MakeStageView.swift in Sources */,
 				1B47E88C2BA42F4C009BFF65 /* DeleteAccountConfirmView.swift in Sources */,
 				1BB2D4282BBFB2AC00C398A2 /* EnergyView.swift in Sources */,
@@ -469,6 +484,7 @@
 				1BE50BCE2BB2A887007ADB10 /* ProfileImageView.swift in Sources */,
 				1B47E8702BA03FD9009BFF65 /* AuthManager.swift in Sources */,
 				1BE50BC32BB1411A007ADB10 /* Realm.Object+Extensions.swift in Sources */,
+				1B8A928B2BC5058800AA12DD /* KTimerGraph.swift in Sources */,
 				1B0019502BB6831500EEEADF /* KNumberSelect.swift in Sources */,
 				1BE50BC72BB1577E007ADB10 /* KTextEditor.swift in Sources */,
 				1B5038F02BBBFBAA00F225F4 /* EnvironmentValues+Extensions.swift in Sources */,

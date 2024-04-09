@@ -10,22 +10,25 @@ import RealmSwift
 
 
 struct ProfileView: View {
+    enum Style {
+        case large
+        case small
+    }
     @Environment(\.isPreview) var isPreview
     @State var account:AccountModel? = nil
     @ObservedRealmObject var profile:ProfileModel
-    
-    init(profile:ProfileModel) {
+    let style:Style
+    init(profile:ProfileModel, style:Style = .large) {
         if AuthManager.shared.userId == profile.id {
             account = AuthManager.shared.accountModel
         }
         self.profile = profile
+        self.style = style
     }
-    
-    var body: some View {
+
+    var large: some View {
         VStack(alignment: .leading) {
-            if let account = account {
-                ProfileImageView(profile: account.myProfile ?? ProfileModel())
-            }
+            ProfileImageView(profile: profile)
                 
             if !profile.nickname.isEmpty {
                 HStack {
@@ -88,6 +91,33 @@ struct ProfileView: View {
             }
         }
         .padding()
+    }
+    
+    var small: some View {
+        HStack {
+            ProfileImageView(profile: profile)
+                .frame(width:50,height: 50)
+            VStack(alignment:.leading) {
+                Text(profile.nickname)
+                    .font(.title2)
+                    .bold()
+                    .foregroundStyle(.primary)
+                Text(profile.aboutMe)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer()
+        }.padding()
+    }
+    var body: some View {
+        Group {
+            switch style {
+            case .large:
+                large
+            case .small:
+                small
+            }
+        }
         
     }
        
@@ -96,7 +126,7 @@ struct ProfileView: View {
 #Preview {
     NavigationStack {
         
-        ProfileView(profile: ProfileModel.Test)
+        ProfileView(profile: ProfileModel.Test, style: .small)
         
     }
 }

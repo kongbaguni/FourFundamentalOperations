@@ -13,11 +13,15 @@ class StageModel : Object , ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id:String = ""
     @Persisted var value:String = ""
     @Persisted var ownerId:String = ""
-    @Persisted var isTimeAtack:Bool = false
     @Persisted var regDateTimeInterval1970:Double = 0
+    @Persisted var timeLimit:Double = 0
 }
 
 extension StageModel {
+    var isTimeAttack:Bool {
+        timeLimit > 0
+    }
+    
     /** 계산식 리스트 */
     var calculations : [CalculationViewModel] {
         value.components(separatedBy: ",").map { item in
@@ -131,7 +135,7 @@ extension StageModel {
                 "value":value,
                 "ownerId": userid,
                 "regDateTimeInterval1970" : Date().timeIntervalSince1970,
-                "isTimeAtack" : model.isTimeAttack,
+                "timeLimit" : model.isTimeAttack ? model.count : 0,
             ]
             
             data["id"] = FirebaseFirestoreHelper.gameCollection?.addDocument(data: data) { res in
@@ -189,7 +193,7 @@ extension StageModel {
             Text("\(count)")
                 .bold()
                 .foregroundStyle(.orange)
-            if isTimeAtack {
+            if isTimeAttack {
                 Text("sec")
                 Text("time attack")
             }

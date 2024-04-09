@@ -7,6 +7,17 @@
     "%@" : {
 
     },
+    "%0.2f sec" : {
+      "comment" : "초단위 포메팅",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%0.2f 초"
+          }
+        }
+      }
+    },
     "%lld" : {
 
     },
@@ -220,9 +231,6 @@
     },
     "empty title error msg" : {
       "comment" : "text input"
-    },
-    "finish" : {
-
     },
     "game" : {
       "localizations" : {

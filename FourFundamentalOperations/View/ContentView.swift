@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.isPreview) var isPreview
     @State var account:AccountModel? = nil
     
     var body: some View {
@@ -50,10 +51,16 @@ struct ContentView: View {
             
         }
         .onAppear {
-            StageModel.sync { error in
-                
+            if !isPreview {
+                StageModel.sync { error in
+                    
+                }
+                account = AuthManager.shared.accountModel
             }
-            account = AuthManager.shared.accountModel
+            else {
+                account = .init(userId: "kongbaguni", accountRegDt: Date(), accountLastSigninDt: Date(), email: "kong@gmail.com", phoneNumber: "010-1234-1234", photoURL: URL(string:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQJs3r3gRot-57vHrAZfYX8uKRbw8CkyEQa-NdFJ1EnzF5AKtTr280BWejnw&s"), isAnonymous: false)
+            }
+
         }
         .onReceive(NotificationCenter.default.publisher(for: .authDidSucessed), perform: { _ in
             account = AuthManager.shared.accountModel

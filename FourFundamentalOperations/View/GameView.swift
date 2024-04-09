@@ -8,19 +8,34 @@
 import SwiftUI
 
 struct GameView: View {
+    @Environment(\.isPreview) var isPreview
     let model:GenerateStateModel?
     @State var stage:StageModel? = nil
     @State var idx:Int = 0
     @State var isFinish = false
     @State var progress:Progress? = nil
     var body: some View {
-        VStack {
+        ScrollView {
+            if model?.isTimeAttack == true || stage?.isTimeAttack == true {
+                KTimer.shard.timeAttcekTimerView(limit: TimeInterval(model?.count ?? stage?.count ?? 0))
+            } else {
+                KTimer.shard.timerView
+            }
+            
+            if let owner = stage?.owner {
+                ProfileView(profile: owner, style: .small)
+            }
             if isFinish {
-                Text("finish")
+                KTimer.shard.listView
+                
             } else if let stage = stage {
-                QustionView(calc: stage.calculations[idx]) {
+                let calc = stage.calculations[idx]
+                QustionView(calc: calc) {
+                    KTimer.shard.action(.lap, desc:
+                                            "\(calc.rawvalue)=\(Int(calc.answer))")
                     if(idx + 1 == stage.calculations.count) {
                         isFinish = true
+                        KTimer.shard.action(.stop, desc: "")
                     }
                     else if(idx + 1 < stage.calculations.count) {
                         idx += 1
@@ -35,18 +50,27 @@ struct GameView: View {
         }
         .navigationTitle("game")
         .onAppear {
+            if KTimer.shard.isStart {
+                KTimer.shard.reset()
+            }
+            KTimer.shard.action(.start, desc: "")
+            
             if stage == nil {
                 if let model = model {
-                    StageModel.makeStage(model: model) { progress in
-                        self.progress = progress
-                        
-                    } complete: { error, model in
-                        self.stage = model
+                    if isPreview == false {
+                        StageModel.makeStage(model: model) { progress in
+                            self.progress = progress
+                        } complete: { error, model in
+                            self.stage = model
+                        }
                     }
 
                 }
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: .kTimerTimeAttackLimitOver), perform: { _ in
+            self.isFinish = true
+        })
     }
 }
 
