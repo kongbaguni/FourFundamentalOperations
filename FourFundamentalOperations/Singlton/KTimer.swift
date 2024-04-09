@@ -48,7 +48,13 @@ class KTimer {
             return 0
         }
     }
-    
+    var fullTime:TimeInterval {
+        if let first = logs.first?.time,
+           let last = logs.last?.time {
+            return last.timeIntervalSince1970 - first.timeIntervalSince1970
+        }
+        return 0
+    }
     var logs:[Log] = []
     
     static let shard = KTimer()
@@ -111,18 +117,27 @@ extension KTimer {
     var timerView: some View {
         KTimerView(mode: .normal, timeLimit: nil)
     }
-    
+    /** 타임어텍 뷰*/
     func timeAttcekTimerView (limit:TimeInterval) ->  some View {
         KTimerView(mode: .timeAttack, timeLimit: limit)
     }
     
-    var listView : some View {
+    /** 게임결과 출력 */
+    func makeGameResultView(mode:KTimerView.Mode) -> some View {
         Group {
             let qcount = logs.filter { log in
                 log.action == .lap
             }.count
-            Text(String(
-                format:NSLocalizedString("Got %d current", comment:"게임 결과"),qcount))
+            
+            switch mode {
+            case .timeAttack:
+                Text(String(
+                    format:NSLocalizedString("Got %d current", comment:"게임 결과"),qcount))
+            case .normal:
+                Text(String(
+                    format:NSLocalizedString("It took %d seconds", comment: "게임 결과"), fullTime))
+            }
+            
             
             ForEach(logs, id: \.self) { log in
                 let sec = log.getDistance(data: self.logs)
@@ -151,7 +166,7 @@ extension KTimer {
 }
 
 
-fileprivate struct KTimerView : View {
+struct KTimerView : View {
     enum Mode {
         case timeAttack
         case normal

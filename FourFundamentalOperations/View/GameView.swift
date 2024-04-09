@@ -26,7 +26,7 @@ struct GameView: View {
                 ProfileView(profile: owner, style: .small)
             }
             if isFinish {
-                KTimer.shard.listView
+                KTimer.shard.makeGameResultView(mode: (model?.isTimeAttack ?? stage?.isTimeAttack ?? false) ? .timeAttack : .normal )
                 
             } else if let stage = stage {
                 let calc = stage.calculations[idx]
