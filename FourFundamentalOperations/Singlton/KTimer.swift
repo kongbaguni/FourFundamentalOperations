@@ -51,6 +51,8 @@ class KTimer {
     var fullTime:TimeInterval {
         if let first = logs.first?.time,
            let last = logs.last?.time {
+            print("-----------------")
+            print(last.timeIntervalSince1970 - first.timeIntervalSince1970)
             return last.timeIntervalSince1970 - first.timeIntervalSince1970
         }
         return 0
@@ -135,7 +137,7 @@ extension KTimer {
                     format:NSLocalizedString("Got %d current", comment:"게임 결과"),qcount))
             case .normal:
                 Text(String(
-                    format:NSLocalizedString("It took %d seconds", comment: "게임 결과"), fullTime))
+                    format:NSLocalizedString("It took %0.2f seconds", comment: "게임 결과"), fullTime))
             }
             
             

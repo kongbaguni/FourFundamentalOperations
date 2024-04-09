@@ -284,13 +284,13 @@
         }
       }
     },
-    "It took %d seconds" : {
+    "It took %0.2f seconds" : {
       "comment" : "게임 결과",
       "localizations" : {
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d 초 걸렸다"
+            "value" : "%0.2f 초 걸렸다"
           }
         }
       }
