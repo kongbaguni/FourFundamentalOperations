@@ -162,9 +162,9 @@ extension StageModel {
         "id":"1234",
         "value":"11+22,21+1,33-1",
         "ownerId":"kongbaguni",
-        "isTimeAttack":false,
+        "isTimeAttack":true,
         "regDateTimeInterval1970":0,
-        "count" : 3
+        "timeLimit" : 20,
     ])
     
     var operations:[String] {
@@ -189,10 +189,10 @@ extension StageModel {
     var title:some View  {
         HStack {
             difficulty.imageView
-
-            Text("\(count)")
+            
+            Text("\(isTimeAttack ? Int(timeLimit) : count )")
                 .bold()
-                .foregroundStyle(.orange)
+                .foregroundStyle(isTimeAttack ? .teal : .orange)
             if isTimeAttack {
                 Text("sec")
                 Text("time attack")

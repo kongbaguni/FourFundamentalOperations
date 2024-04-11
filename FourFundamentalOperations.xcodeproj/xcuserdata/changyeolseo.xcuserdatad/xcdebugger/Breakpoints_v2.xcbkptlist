@@ -116,5 +116,83 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80A774C6-0D68-41CB-9E91-5ACC35F679DD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FourFundamentalOperations/Model/StageModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "makeStage(model:progress:complete:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "80A774C6-0D68-41CB-9E91-5ACC35F679DD - 9141891b118a5cf9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static FourFundamentalOperations.StageModel.makeStage(model: FourFundamentalOperations.GenerateStateModel, progress: (__C.NSProgress) -&gt; (), complete: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;FourFundamentalOperations.StageModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FourFundamentalOperations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/changyeolseo/Documents/iOS/FourFundamentalOperations/FourFundamentalOperations/Model/StageModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141">
+               </Location>
+               <Location
+                  uuid = "80A774C6-0D68-41CB-9E91-5ACC35F679DD - 754b072e7793abc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static FourFundamentalOperations.StageModel.makeStage(model: FourFundamentalOperations.GenerateStateModel, progress: (__C.NSProgress) -&gt; (), complete: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;FourFundamentalOperations.StageModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FourFundamentalOperations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/changyeolseo/Documents/iOS/FourFundamentalOperations/FourFundamentalOperations/Model/StageModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14313E15-EBA0-460D-B383-5EDD349C714D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FourFundamentalOperations/Model/StageModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "makeStage(model:progress:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C16695F3-29DC-480B-8262-F4CB884A0AED"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FourFundamentalOperations/Model/StageModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "makeStage(model:progress:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
