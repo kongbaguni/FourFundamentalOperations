@@ -10,9 +10,19 @@ import RealmSwift
 
 extension Realm {
     static var shared:Realm {
-        let config = Realm.Configuration(schemaVersion:0) { migration, oldSchemaVersion in
-          
+        let config = Realm.Configuration(schemaVersion:3) { migration, oldSchemaVersion in
+            if oldSchemaVersion < 3 {
+                migration.enumerateObjects(ofType: StageModel.className()) { oldObject, newObject in
+                    newObject!["timeLimit"] = 0
+                }
+            }
         }
-        return try! Realm(configuration: config)
+        Realm.Configuration.defaultConfiguration = config
+        do {
+            return try Realm(configuration: config)
+        } catch {
+            print(error.localizedDescription)
+            abort()
+        }
     }
 }
