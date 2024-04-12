@@ -29,6 +29,12 @@ extension StageModel {
         }
     }
     
+    func getLengthCalc(operator op:CalculationViewModel.Operator)->Int {
+        calculations.filter { model in
+            model.operator == op
+        }.count
+    }
+    
     /** 만든사람 정보 */
     var owner:ProfileModel? {
         Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: ownerId)
@@ -46,13 +52,21 @@ extension StageModel {
     
     /** 난이도 */
     var difficulty : Difficulty {
+        
+        let plusPoint = getLengthCalc(operator: .plus)
+        let minusPoint = getLengthCalc(operator: .subtrat)
+        let multiplyPoint = getLengthCalc(operator: .multiply) * 10
+        let dividePoint = getLengthCalc(operator: .divide) * 10
+        let point = (plusPoint + minusPoint + multiplyPoint + dividePoint) / calculations.count
+        
+        
         let value = value.components(separatedBy: ",").first
-        switch value?.count ?? 0 {
+        switch value?.count ?? 0 + point {
         case 0,1,2,3:
             return .easy
-        case 4:
+        case 4, 5:
             return .normal
-        case 5:
+        case 6, 7:
             return .hard
         default:
             return .ultra
