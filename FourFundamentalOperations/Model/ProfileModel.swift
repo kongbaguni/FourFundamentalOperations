@@ -77,10 +77,7 @@ extension ProfileModel {
     }
     
     func getProfileImageUrl(complete: @escaping(URL?,Error?)->Void) {
-        guard let id = AuthManager.shared.userId else {
-            return
-        }
-        FirebaseFirestorageHelper.shared.getURL(path: "profileImage", id: id) { url, error in
+        FirebaseFirestorageHelper.shared.getURL(path: "profileImage", id: self.id) { url, error in
             complete(url,error)
         }        
     }

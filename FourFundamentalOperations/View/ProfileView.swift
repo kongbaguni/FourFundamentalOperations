@@ -102,8 +102,12 @@ struct ProfileView: View {
                     .font(.title2)
                     .bold()
                     .foregroundStyle(.primary)
-                Text(profile.aboutMe)
+                Text(profile.id)
                     .font(.caption)
+                    .foregroundStyle(.secondary)
+
+                Text(profile.aboutMe)
+                    .font(.caption2)
                     .foregroundStyle(.secondary)
             }
             Spacer()
