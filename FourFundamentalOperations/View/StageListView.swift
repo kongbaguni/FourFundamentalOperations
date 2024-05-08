@@ -35,11 +35,13 @@ struct StageListView: View {
                     }
                 }
             } else {
-                ForEach(list, id: \.self) { item in
-                    NavigationLink {
-                        GameView(model:nil, stage: item)
-                    } label: {
-                        item.title
+                if AuthManager.shared.isSignined {
+                    ForEach(list, id: \.self) { item in
+                        NavigationLink {
+                            GameView(model:nil, stage: item)
+                        } label: {
+                            item.title
+                        }
                     }
                 }
             }

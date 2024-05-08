@@ -10,7 +10,7 @@ import RealmSwift
 
 extension Realm {
     static var shared:Realm {
-        let config = Realm.Configuration(schemaVersion:3) { migration, oldSchemaVersion in
+        let config = Realm.Configuration(schemaVersion:4) { migration, oldSchemaVersion in
             if oldSchemaVersion < 3 {
                 migration.enumerateObjects(ofType: StageModel.className()) { oldObject, newObject in
                     newObject!["timeLimit"] = 0

@@ -10,12 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.isPreview) var isPreview
     @State var account:AccountModel? = nil
-    
+    @State var isLogin:Bool = false
     var body: some View {
         NavigationStack {
             List {
                 NavigationLink {
-                    AccountMenuView(isLogin: AuthManager.shared.auth.currentUser != nil)
+                    AccountMenuView(isLogin: isLogin)
                 } label: {
 
                     if let account = account {
@@ -51,6 +51,10 @@ struct ContentView: View {
             
         }
         .onAppear {
+            isLogin = AuthManager.shared.auth.currentUser != nil
+            guard isLogin else {
+                return
+            }
             if !isPreview {
                 StageModel.sync { error in
                     
@@ -64,9 +68,12 @@ struct ContentView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: .authDidSucessed), perform: { _ in
             account = AuthManager.shared.accountModel
+            isLogin = AuthManager.shared.auth.currentUser != nil
         })
         .onReceive(NotificationCenter.default.publisher(for: .signoutDidSucessed), perform: { _ in
             account = nil
+            isLogin = AuthManager.shared.auth.currentUser != nil
+
         })
             
     }
