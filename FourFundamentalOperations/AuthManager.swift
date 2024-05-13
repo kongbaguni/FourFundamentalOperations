@@ -8,7 +8,7 @@
 import Foundation
 import CryptoKit
 import AuthenticationServices
-import Firebase
+import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 import GoogleSignIn
@@ -177,11 +177,16 @@ class AuthManager : NSObject {
     //MARK: - 로그아웃
     func signout()->Error? {
         do {
+            let realm = Realm.shared
+            realm.beginWrite()
+            realm.deleteAll()
+            try realm.commitWrite()
+
             if auth.currentUser?.isAnonymous == true {
                 auth.currentUser?.delete()
             }
             try auth.signOut()
-            
+
             NotificationCenter.default.post(name: .authDidSucessed, object: nil)
         } catch {
             return error

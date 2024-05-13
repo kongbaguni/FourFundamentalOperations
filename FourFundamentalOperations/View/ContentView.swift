@@ -69,6 +69,9 @@ struct ContentView: View {
         .onReceive(NotificationCenter.default.publisher(for: .authDidSucessed), perform: { _ in
             account = AuthManager.shared.accountModel
             isLogin = AuthManager.shared.auth.currentUser != nil
+            StageModel.sync { error in
+                
+            }
         })
         .onReceive(NotificationCenter.default.publisher(for: .signoutDidSucessed), perform: { _ in
             account = nil
