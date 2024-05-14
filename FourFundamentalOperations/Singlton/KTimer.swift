@@ -15,49 +15,8 @@ extension Notification.Name {
 
 
 class KTimer {
-    enum Action {
-        case start
-        case lap
-        case stop
-    }
-    
-    struct Log : Hashable {
-        static func == (lhs:Log, rhs:Log)->Bool {
-            return lhs.action == rhs.action && lhs.time == rhs.time
-        }
-        let action:Action
-        let time:Date
-        let desc:String
-        
-        func getDistance(data:[Log])->TimeInterval {
-            if data.count <= 1 {
-                return 0
-            }
-            if let idx = data.firstIndex(of: self) {
-                for i in 0..<idx {
-                    let b = data[idx - i - 1]
-                    switch b.action {
-                    case .start, .lap:
-                        return  self.time.timeIntervalSince1970 - b.time.timeIntervalSince1970
-                    default:
-                        break
-                    }
-                }
-            }
-            
-            return 0
-        }
-    }
-    var fullTime:TimeInterval {
-        if let first = logs.first?.time,
-           let last = logs.last?.time {
-            print("-----------------")
-            print(last.timeIntervalSince1970 - first.timeIntervalSince1970)
-            return last.timeIntervalSince1970 - first.timeIntervalSince1970
-        }
-        return 0
-    }
-    var logs:[Log] = []
+  
+    var logs:[GameLogModel] = []
     
     static let shard = KTimer()
 }
@@ -67,7 +26,7 @@ extension KTimer {
         return logs.first?.action == .start
     }
     
-    func isEnable(_ action:Action)->Bool {
+    func isEnable(_ action:GameLogModel.Action)->Bool {
         let la = logs.last?.action
         switch action {
         case .start:
@@ -79,7 +38,7 @@ extension KTimer {
         }
     }
     
-    func action(_ action:Action, desc:String) {
+    func action(_ action:GameLogModel.Action, desc:String) {
         if isEnable(action) {
             logs.append(.init(action: action, time: Date(), desc: desc))
             NotificationCenter.default.post(name: .kTimerActionUpdated, object: self.logs)
@@ -126,44 +85,7 @@ extension KTimer {
     
     /** 게임결과 출력 */
     func makeGameResultView(mode:KTimerView.Mode) -> some View {
-        Group {
-            let qcount = logs.filter { log in
-                log.action == .lap
-            }.count
-            
-            switch mode {
-            case .timeAttack:
-                Text(String(
-                    format:NSLocalizedString("Got %d current", comment:"게임 결과"),qcount))
-            case .normal:
-                Text(String(
-                    format:NSLocalizedString("It took %0.2f seconds", comment: "게임 결과"), fullTime))
-            }
-            
-            
-            ForEach(logs, id: \.self) { log in
-                let sec = log.getDistance(data: self.logs)
-                switch log.action {
-                case .lap:
-                    HStack {
-                        Text(log.desc)
-                        KTimerGraph(value: log.getDistance(data: self.logs), max: 20.0)
-                        Text(String(format:NSLocalizedString("%0.2f sec", comment: "초단위 포메팅"),sec))
-                            .frame(width: 120, height: 25)
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.secondary,lineWidth: 2.0)
-                            }
-                        
-                    }.frame(height: 20)
-                default:
-                    HStack {
-                        
-                    }
-
-                }
-            }
-        }.padding()
+      GameResultView(mode: mode, logs: logs)
     }
 }
 
@@ -175,7 +97,7 @@ struct KTimerView : View {
     }
     let mode:Mode
     let timeLimit:TimeInterval?
-    @State var logs:[KTimer.Log] = []
+    @State var logs:[GameLogModel] = []
     @State var curDate:Date = Date()
     @State var timer:Timer? = nil
     
@@ -241,7 +163,7 @@ struct KTimerView : View {
             timer = nil
         }
         .onReceive(NotificationCenter.default.publisher(for: .kTimerActionUpdated), perform: { noti in
-            if let list = noti.object as? [KTimer.Log] {
+            if let list = noti.object as? [GameLogModel] {
                 logs = list
             }
         })

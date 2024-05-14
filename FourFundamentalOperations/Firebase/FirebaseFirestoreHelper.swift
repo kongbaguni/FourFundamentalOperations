@@ -31,6 +31,10 @@ struct FirebaseFirestoreHelper {
     static var gameCollection:CollectionReference? {
         publicCollection?.document("data").collection("game")
     }
+    
+    static var gameRecordCollection:CollectionReference? {
+        publicCollection?.document("data").collection("record")
+    }
         
 
 }

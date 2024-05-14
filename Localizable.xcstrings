@@ -194,14 +194,8 @@
         }
       }
     },
-    "delete code confirm message" : {
-      "comment" : "delete tag"
-    },
     "delete select image" : {
 
-    },
-    "delete theme msg" : {
-      "comment" : "theme"
     },
     "edit profile" : {
       "localizations" : {
@@ -223,13 +217,7 @@
         }
       }
     },
-    "empty name error msg" : {
-      "comment" : "text input"
-    },
     "empty text error msg" : {
-      "comment" : "text input"
-    },
-    "empty title error msg" : {
       "comment" : "text input"
     },
     "game" : {
@@ -325,8 +313,12 @@
         }
       }
     },
+    "not Auth error msg" : {
+      "comment" : "auth"
+    },
     "Not enough Point" : {
       "comment" : "Not enough Point",
+      "extractionState" : "stale",
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -495,9 +487,6 @@
         }
       }
     },
-    "Tags already registered" : {
-      "comment" : "tag"
-    },
     "test" : {
 
     },
@@ -523,9 +512,6 @@
           }
         }
       }
-    },
-    "watchAddAndEarnPointPrompt" : {
-      "comment" : "watch ad"
     },
     "wrongAccountSigninWhenLeave msg" : {
       "comment" : "wrong acount sign in"
