@@ -45,7 +45,7 @@ struct GameView: View {
                                             "\(calc.rawvalue)=\(Int(calc.answer))")
                     if(idx + 1 == stage.calculations.count) {
                         isFinish = true
-                        KTimer.shard.action(.stop, desc: "")
+                        KTimer.shard.action(.stop, desc: "")                        
                     }
                     else if(idx + 1 < stage.calculations.count) {
                         idx += 1

@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 import RealmSwift
 
-class RecordModel : Object {
+class GameRecordModel : Object {
     @Persisted(primaryKey: true) var id:String = ""
     @Persisted var ownerId:String = ""
     @Persisted var value:String = ""
     @Persisted var regDatetimeIntervalSince1970:Double = Date().timeIntervalSince1970
 }
 
-extension RecordModel {
+extension GameRecordModel {
     var logs:[GameLogModel] {
         value.components(separatedBy: "/").map { value in
             .init(string: value)
@@ -42,7 +42,7 @@ extension RecordModel {
             if error == nil {
                 let realm = Realm.shared
                 realm.beginWrite()
-                realm.create(RecordModel.self, value: data, update: .all)
+                realm.create(GameRecordModel.self, value: data, update: .all)
                 try! realm.commitWrite()
             }
             complete(error)
@@ -64,7 +64,7 @@ extension RecordModel {
         let value = logs.map { model in
             model.stringValue
         }.joined(separator: "/")
-        var model = RecordModel(value: [
+        var model = GameRecordModel(value: [
             "id":"test",
             "value":value,
             "regDatetimeIntervalSince1970":Date().timeIntervalSince1970
@@ -74,6 +74,8 @@ extension RecordModel {
         ForEach(model.logs, id:\.self) { log in
             Text(log.stringValue)
         }
+        
+        GameResultView(mode: .normal, logs: logs)
         
     }
 }

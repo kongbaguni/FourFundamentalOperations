@@ -42,6 +42,11 @@ extension KTimer {
         if isEnable(action) {
             logs.append(.init(action: action, time: Date(), desc: desc))
             NotificationCenter.default.post(name: .kTimerActionUpdated, object: self.logs)
+            if action == .stop {
+                GameRecordModel.createRecord(logs: logs) { error in
+                    
+                }
+            }
         }
     }
     
