@@ -77,13 +77,16 @@ extension StageModel {
     static func sync(complete:@escaping(Error?)->Void) {
         let last = Realm.shared.objects(StageModel.self).sorted(byKeyPath: "regDateTimeInterval1970", ascending: true).last
         let date = last?.regDateTimeInterval1970 ?? 0
+        print("sync stage : \(date)")
         FirebaseFirestoreHelper.gameCollection?.whereField("regDateTimeInterval1970", isGreaterThan: date)
             .getDocuments(completion: { snapshot, error in
                 if error == nil {
                     let realm = Realm.shared
                     realm.beginWrite()
                     _ = snapshot?.documents.map({ snapshot in
-                        let data = snapshot.data()
+                        var data = snapshot.data()
+                        data["id"] = snapshot.documentID
+                        print("sync stage  : \(data))")
                         realm.create(StageModel.self, value: data, update: .all)
                     })
                     try! realm.commitWrite()

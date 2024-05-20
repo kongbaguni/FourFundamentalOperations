@@ -19,6 +19,25 @@ struct GameView: View {
     
     var body: some View {
         ScrollView {
+            if isPreview == false {
+                if profileId != nil {
+                    if let owner = stage?.owner {
+                        HStack {
+                            Text("creator")
+                                .font(.subheadline)
+                                .bold()
+                                .padding()
+                            ProfileView(profile: owner, style: .small)
+                        }
+                        .padding(10)
+                        .background {
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(lineWidth: 2)
+                        }
+                    }
+                }
+            }
+
             if model?.isTimeAttack == true || stage?.isTimeAttack == true {
                 var limit:TimeInterval {
                     if let c = model?.count {
@@ -32,17 +51,6 @@ struct GameView: View {
                 KTimer.shard.timeAttcekTimerView(limit: limit)
             } else {
                 KTimer.shard.timerView
-            }
-            if isPreview == false {
-                if profileId != nil {
-                    if let owner = stage?.owner {
-                        HStack {
-                            Text("creator")
-                            
-                            ProfileView(profile: owner, style: .small)
-                        }
-                    }
-                }
             }
             if isFinish {
                 KTimer.shard.makeGameResultView(mode: (model?.isTimeAttack ?? stage?.isTimeAttack ?? false) ? .timeAttack : .normal )
