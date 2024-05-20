@@ -14,6 +14,9 @@ struct GameView: View {
     @State var idx:Int = 0
     @State var isFinish = false
     @State var progress:Progress? = nil
+    
+    @State var profileId:String? = nil
+    
     var body: some View {
         ScrollView {
             if model?.isTimeAttack == true || stage?.isTimeAttack == true {
@@ -31,8 +34,14 @@ struct GameView: View {
                 KTimer.shard.timerView
             }
             if isPreview == false {
-                if let owner = stage?.owner {
-                    ProfileView(profile: owner, style: .small)
+                if profileId != nil {
+                    if let owner = stage?.owner {
+                        HStack {
+                            Text("creator")
+                            
+                            ProfileView(profile: owner, style: .small)
+                        }
+                    }
                 }
             }
             if isFinish {
@@ -64,7 +73,13 @@ struct GameView: View {
                 KTimer.shard.reset()
             }
             KTimer.shard.action(.start, desc: "")
-            
+            if let id = stage?.ownerId {
+                ProfileModel.getProfile(id: id) { error in
+                    if error == nil {
+                        profileId = id
+                    }
+                }
+            }
             if stage == nil {
                 if let model = model {
                     if isPreview == false {

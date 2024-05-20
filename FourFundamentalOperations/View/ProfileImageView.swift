@@ -63,7 +63,7 @@ struct ProfileImageView : View {
             } else {
                 profile.getProfileImageUrl { url, error in
                     DispatchQueue.main.async {
-                        self.profileImageURL = url
+                        self.profileImageURL = url                        
                     }
                 }
             }

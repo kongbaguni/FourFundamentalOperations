@@ -77,7 +77,8 @@ extension ProfileModel {
     }
     
     func getProfileImageUrl(complete: @escaping(URL?,Error?)->Void) {
-        FirebaseFirestorageHelper.shared.getURL(path: "profileImage", id: self.id) { url, error in
+        FirebaseFirestorageHelper.shared.getURL(path: "profile", id: self.id) { url, error in
+            print("getProfileImageUrl : id = \(self.id) url = \(url?.absoluteString ?? "none") error : \(error?.localizedDescription ?? "none")")
             complete(url,error)
         }        
     }

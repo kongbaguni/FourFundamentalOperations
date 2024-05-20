@@ -147,6 +147,16 @@
         }
       }
     },
+    "creator" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "작성자"
+          }
+        }
+      }
+    },
     "delete" : {
       "localizations" : {
         "ko" : {
@@ -366,6 +376,9 @@
           }
         }
       }
+    },
+    "play game" : {
+
     },
     "Profile Edit" : {
       "localizations" : {

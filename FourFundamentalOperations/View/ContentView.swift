@@ -34,15 +34,22 @@ struct ContentView: View {
                     }
                 }
                 
-                
-                NavigationLink {
-                    MakeStageView()
-                } label : {
-                    RoundedBorderImageLabelView(image: .init(systemName:"doc.badge.plus"), title: .init("create new game"), style: .primary)
+                if isLogin {
+                    NavigationLink {
+                        MakeStageView()
+                    } label : {
+                        RoundedBorderImageLabelView(image: .init(systemName:"doc.badge.plus"), title: .init("create new game"), style: .primary)
+                    }
+                    
+                    NavigationLink {
+                        List {
+                            StageListView()
+                        }
+                    } label: {
+                        RoundedBorderImageLabelView(image: .init(systemName: "gamecontroller"), title: .init("play game"), style: .secondary)
+                    }
                 }
-                Section {
-                    StageListView()
-                }
+                                
             }
             .padding()
             .navigationTitle(.init("Home"))

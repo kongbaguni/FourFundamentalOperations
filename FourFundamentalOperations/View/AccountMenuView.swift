@@ -24,17 +24,22 @@ struct AccountMenuView : View {
     }
     @State var isAlert:Bool = false
     
+    @State var userId:String? = nil
+    var profile:ProfileModel? {
+        if let id = userId {
+            return Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: id)
+        }
+        return nil
+    }
+    
     var loginView : some View {
         Group {
             if isPreview {
                 ProfileView(profile: ProfileModel.Test)
-            } else {
-                if let id = AuthManager.shared.userId {
-                    if let profile = Realm.shared.object(ofType: ProfileModel.self, forPrimaryKey: id) {
-                        ProfileView(profile: profile)
-                    }
-                }
+            } else if let profile = profile {
+                ProfileView(profile: profile)
             }
+            
             /** 로그아웃 버튼 */
             ButtonView(image: .init(systemName: "rectangle.portrait.and.arrow.right"), title: .init("Sign Out"), style: .secondary) {
                 if isAnonymousLogin {
@@ -158,8 +163,19 @@ struct AccountMenuView : View {
     func update() {
         if !isPreview {
             DispatchQueue.main.async {
+                userId = nil
                 isLogin = AuthManager.shared.auth.currentUser != nil
                 isAnonymousLogin = AuthManager.shared.auth.currentUser?.isAnonymous ?? false
+                
+                if let id = AuthManager.shared.auth.currentUser?.uid {
+                    ProfileModel.getProfile(id: id) { error in
+                        self.error = error
+                        self.userId = id
+                    }
+                }
+                
+                
+                print("account menu update uid: \(AuthManager.shared.auth.currentUser?.uid ?? "none")")
             }
         }
     }
